@@ -1,0 +1,13 @@
+:Variables:
+!KnowWhatToDo;
+!KnowSebastiansRole;
+!ReadLetter;
+!End1;
+!End2;
+:TextEvidences:
+LetterInformation;
+Apology;
+FlorianSellQuickly;
+SebastianWantsApology;
+:ObjEvindences:
+sherlockFace;

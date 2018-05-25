@@ -1,0 +1,6 @@
+:Variables:
+!KnowWhatHappened;
+!KnowMurderer;
+:TextEvidences:
+MurdererEvidence;
+:ObjEvindences:

@@ -1,0 +1,40 @@
+{
+Q:How are you?;
+A:*crying*, my beloved brother, and I did not finished his painting, need to write a song about this, frank get all the money;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:Jessica, she´s acting wrong like a snake, her fuss with all the perfume and new clothing, now she would get much more;
+}
+
+{
+Q:Did you notice anything?;
+A:<PaulSlept>was sleeping>;
+}
+
+{
+Q:Where have you been at the time of the crime?;
+A:<PaulSlept> was sleeping>;
+}
+
+{@
+Q:ElenaSawButler;
+A:<ButlerWasInPaulsRoom> Butler did something in my room>, i dont know;
+}
+
+{@
+Q:OsgarPaysFrederik;
+A:WHAT HOW HE COULD ?!? I need to leave.;
+S:ToldPaulOsgarPaysFrederik;
+}
+
+{#
+Q:FoundKey, AnnieGaveKey;
+A:<OsgarBlackmailedPaul>Osgar blackmailed me>;
+}
+
+{#
+Q:MissingSword;
+A:I think its missing for some months;
+}

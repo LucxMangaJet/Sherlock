@@ -1,0 +1,67 @@
+{
+Q:Did you notice anything?;
+A:no;
+}
+
+{
+Q:How are you?;
+A:hmmm.. ok tragic murder, its so loud. I hope nothing more happens;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:<ButlerThinkAnnieMurder>I think Annie is the murderer> She is new in here, and is a little strange, always listening to pauls music;
+}
+
+{@
+Q:ButlerThinkAnnieMurder	
+A:<ButlerDislikesAnnie> Yes, i don´t like her>, she is so childish, we quarreled a lot;
+}
+
+{
+Q:Where have you been at the time of the crime?;
+A:<ButlerWasInHisRoom> Butler sagt er war in einem anderen raum>;
+}
+
+{@
+Q:ElenaSawButler, ButlerWasInHisRoom;
+A:<ButlerWasInPaulsRoom> yeah i was in Pauls room>;
+}
+
+{@
+Q:NoiseFromPaulsRoom, ButlerWasInPaulsRoom;
+A:<AffairPaulButler>Yeah, i´ve got an affair with Paul> because i´m gay;
+}
+
+{@
+Q:SawPaintingBoxroom;
+A:Ouh okay.;
+S:AskedButlerSawPaintingBoxroom;
+}
+{
+R:AskedButlerSawPaintingBoxroom;
+Q:Can you open the boxroom for me please?;
+A:Yeah sure.;
+}
+
+{@
+Q:AffairPaulButler, ButlerFlirtsAnnie, BadPaymentButler, FoundButlerMoney;
+A:<OsgarPaysFrederik>yeah oskar pays me> to have an affair with paul;
+}
+
+{#
+R:AskedJessicaForAffair;
+Q:LetterFromSamanthaToJessica;
+A:<OsgarLiar> Osgar told me that they had an affair but I didn´t know that this isn´t true>; 
+}
+
+{#
+Q:MissingSword;
+A:yesterday the sword ws there, somebody may took it;
+}
+
+{
+R:PaulDead;
+Q:Did you know something about Paul´s death?;
+A:<GavePaulsLetter> he gave me that letter>;
+}

@@ -1,0 +1,35 @@
+{@
+Q:ElenaWasLoungeWithJessica;
+A:yeah I was in the lounge with Elena, then i left to met frank in the library;
+}
+
+{
+Q:How are you?;
+A:fine but: I had beef with frank, but its fine now I could calm him down with a new novel I gifted him;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:I've really no idea who would do that;
+}
+
+{
+Q:Where have you been at the time of the crime?;
+A:<ElenaWasLoungeWithJessica> I was in the lounge with Elena>, then went to library;
+}
+
+{
+Q:Did you notice anything?;
+A:<SawPaintingBoxroom> i saw somebody entering the box room with a painting>;
+}
+
+{@
+Q:JessicaThomasMotiv;
+A:No, thats not true, Frank made theatre and i didn´t know how this came to his mind.;
+S:AskedJessicaForAffair;
+}
+
+{#
+Q:MissingSword;
+A:I don know if there was a sword;
+}

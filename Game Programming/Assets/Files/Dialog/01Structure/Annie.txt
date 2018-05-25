@@ -1,0 +1,34 @@
+{
+Q:Did you noticed anything?;
+A:No;
+}
+
+{
+Q:How are you?;
+A:yeah i´m fine ,really shocked, but they where such a romantic couple;
+}
+
+{
+Q:Where have you been at the time of the crime?;
+A:<AnnieWasInLivingRoom>was in the living room alone>;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:i dont know, dont want accuse somebody, but <JessicaThomasMotiv> jessica has got reason because they have an affair>;
+}
+
+{@
+Q:OsgarWasInLivingRoom;
+A:<OsgarNoAlibi>No, didn´t see osgar>;
+}
+
+{#
+Q:FoundPoison;
+A:need to kill the mouses in our mansion, because jessica don´t like them really much, is scared, but <AnnieGaveKey> i gave Paul the key>;
+}
+
+{#
+Q:MissingSword;
+A:I think there was a sword;
+}

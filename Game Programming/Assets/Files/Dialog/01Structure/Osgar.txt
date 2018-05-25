@@ -1,0 +1,29 @@
+{
+Q:How are you?;
+A:not really good, I really can feel with frank, paul and elena they have to be so sad;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:frank, he told me that he really wants the company, Elena told me everything/ keeps me up to date;
+}
+
+{
+Q:Why are you here?;
+A:<RelationshipOsgarElena> Elena and me were together but now we are just friends;
+}
+
+{@
+Q:OsgarWasInLivingRoom;
+A:<OsgarNoAlibi>No, didn´t see her. looks like we closely missed us >;
+}
+
+{@
+Q:NoWedding;
+A:<ElenaNotLovedOsgar>She refused because she didn´t love me>;
+}
+
+{#
+Q:MissingSword;
+A:I dont know what you are showing me there;
+}
