@@ -1,0 +1,9 @@
+:Variables:
+!TellSherlockName;
+!TellSherlockRelation;
+!FinishedTutorial;
+:TextEvidences:
+NameSchool;
+NameRichard;
+:ObjEvindences:
+ViolinEv;

@@ -1,0 +1,25 @@
+{
+Q:How are you?;
+A:I feel realy sorry for elena and the rest of the family... a tragic day..;
+}
+
+{
+Q:Who do you think is the murderer?;
+A:You know.. I dont wanna say he did it, but Frank...I know that he desperately wants the company, Elena told me a lot...;
+}
+
+{
+Q:Where were you at the time of crime?;
+A:I was hanging out in the living room, on my own..;
+}
+
+{@
+Q:AnnieWasInLivingRoom;
+A:No, didn´t see her. Looks like we closely missed us.;
+}
+
+{
+R:LetterForWedding;
+Q:What happened to your wedding with Elena?;
+A:We ended up breaking the arrangement... I really thought we were ment to be together. The truth was, she didn't really love me.;
+}
