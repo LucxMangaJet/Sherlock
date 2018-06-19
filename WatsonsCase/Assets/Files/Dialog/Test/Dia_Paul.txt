@@ -1,0 +1,30 @@
+
+
+{ 		
+!KnowWhatHappened;
+What happened here?;
+I don't really know. I was walking around when i heard a scream comming from here. Thats when i found him... like this.. dead..;
+KnowWhatHappened;
+}
+
+{ 		
+KnowWhatHappened;
+Do you know who did this?;
+Yes.. i'm pretty sure that <MurdererEvidence>it was Max> ... you know ... Max Bredlau!;
+KnowMurderer;
+}
+
+{
+KnowMurderer;
+Where is Max now?;
+At the Uni playing Magic..;
+;
+}
+
+
+{@
+;
+MurdererEvidence;
+Yeah... thats what i told you...;
+;
+}

@@ -1,0 +1,11 @@
+{
+Q:Analyze body;
+A:<RigorMortis>The body is already stiff>... This would imply that the victim was killed before 4 pm... There are no traces around the hands or arms which means that the victim did not or could not defend himself.;
+S:KnowRigorMortis,SCORE_0;
+}
+
+
+{
+Q:Inspect wounds;
+A:<StabWounds>There are multiple stab wounds on the body>... The wounds are not too deep, which can be explained in two ways: The murdere is either physically not very strong or the blows were delivered in very quick succession.;
+}

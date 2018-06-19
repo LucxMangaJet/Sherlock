@@ -1,0 +1,20 @@
+
+
+{1
+Q:Good Afternoon;
+A: Good Afternoon my friend. Slept well? Miss Hutson brought the mail this morning, we got a letter, it's there on the sofa, can you please tell me who is disturbing us this time?;
+S:TellSherlockName;
+}
+
+{@
+Q:NameRichard;
+A:Richard Clarke... Oh yes, i remember now... An old case, from when i was still quite young, i remember meeting him some years later, he had just started a music school. Thats when i got my violin... What was the name again? Could you check? The violin should be in the bedroom...;
+S:TellSherlockRelation;
+}
+
+{#1
+Q:ViolinEv;
+A:Ah yes the F.F.Chopin Music School! Sadly i've already made plans for this evening, but wasting that ticket would be a shame! You should go Watson, you'll enjoy it!;
+S:FinishedTutorial;
+}
+

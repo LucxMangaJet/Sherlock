@@ -1,0 +1,180 @@
+{1
+Q:Good evening;
+A:What a fine evening indeed. Looks like going to the concert was a good idea after all... So, my friend, you had some time for yourself on this case. Let's see how much you were able to find out in this short period of time. I've been told that Richard, my old acquanitance was killed here. From your discoveries when was he killed?;
+S:EQ_When;
+}
+
+{1
+R:EQ_When,!EE_When;
+Q:Between 2pm and 4pm;
+A:Between 2 and 4pm? Do you have any proof for that?;
+S:EE_When, EA_When_24;
+}
+
+{1
+R:EQ_When,!EE_When;
+Q:Between 5pm and 6pm;
+A:Between 5 and 6 pm you say? Do you have any proof for that?;
+S:EE_When,EA_When_56;
+}
+
+{@1
+R:EE_When;
+Q:ANY;
+A:I see... Did you discover the weapon used for the murder?;
+S:EQ_How;
+}
+
+
+{1
+R:EQ_How,!EE_How;
+Q:With a kitchen knife taken from the kitchen.;
+A:A kitchen knife? Do you have any proof?;
+S:EE_How,EA_How_Knife;
+}
+
+{1
+R:EQ_How,!EE_How;
+Q:With Richards old bayonett taken in front of his room.;
+A:His old bayonett? Do you have any proof?;
+S:EE_How,EA_How_Bayonett;
+}
+
+{1
+R:EQ_How,!EE_How;
+Q:With a fireplace poker, taken from the grand hall.;
+A:A fireplace poker? Do you have any proof?;
+S:EE_How,EA_How_Poker;
+}
+
+{1
+R:EQ_How,!EE_How;
+Q:With a heating pipe.;
+A:A heating pipe? Do you have any proof?;
+S:EE_How,EA_How_Pipe;
+}
+
+
+{@1
+R:EE_How;
+Q:ANY;
+A:I see... Well then, to the burning question... Who did it?;
+S:EQ_Who;
+}
+
+
+{1
+R:EQ_Who,!EE_Who;
+Q:Clarice;
+A:Clarice? The one that played at the concert? Proof?;
+S:EE_Who,EA_Who_Clarice;
+}
+
+{1
+R:EQ_Who,!EE_Who;
+Q:Elisabeth;
+A:Elisabeth? Proof?;
+S:EE_Who,EA_Who_Elisabeth;
+}
+
+{1
+R:EQ_Who,!EE_Who;
+Q:Robert;
+A:Robert? Proof?;
+S:EE_Who,EA_Who_Robert;
+}
+
+{1
+R:EQ_Who,!EE_Who;
+Q:Theodore;
+A:Theodore?? Proof?;
+S:EE_Who,EA_Who_Theodore;
+}
+
+{@1
+R:EE_Who;
+Q:ANY;
+A:I see... And have you found out why?;
+S:EQ_Why;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Clarice;
+Q:Richard and Clarice had an affair.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Clarice_Love;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Clarice;
+Q:Richard was selling Clarices compositions as his own.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Clarice_Compositions;
+}
+
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Elisabeth;
+Q:Richard and Clarice had an affair and Elisabeth was jelous.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Elisabeth_Love;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Elisabeth;
+Q:Richard abused Elisabeth and she couldn't stand it anymore.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_ELisabeth_Abuse;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Robert;
+Q:Richard wanted to expell Robert.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Robert_Anger;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Robert;
+Q:Richard killed Roberts father during the war... Robert wanted revenge.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Robert_Revenge;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Theodore;
+Q:Richard was selling Theodores compositions as his own;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Theodore_Compositions;
+}
+
+{1
+R:EQ_Why,!EE_Why,EA_Who_Theodore;
+Q:Richard wanted to expell Theodore which drove him mad.;
+A:Do you have any proof for that?;
+S:EE_Why,EA_Why_Theodore_Jelousy;
+}
+
+{@1
+R:EE_Why;
+Q:ANY;
+A:Hmm... Let me think about this..;
+S:E_Conclusion;
+}
+
+{
+R:E_End;
+Q:I'll be on my way.;
+A: END GAME. START CREDITS;
+S:E_ConfirmEnd;
+}
+
+{1
+R:E_Conclusion;
+Q:So?;
+A:SET ME IN CODE;
+S:E_End;
+}
+
+
+

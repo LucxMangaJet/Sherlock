@@ -1,0 +1,5 @@
+{
+Q:Read;
+A:Dear Mr.Holmes, we are holding a celebration to commemorate the success of the company on our island and we would be honored by your presence. Please remember to bring a mask with you as the main event will consist of a masked ball. -O<SenderSignature>S>II;
+S:ReadInvitation;
+}

@@ -1,0 +1,38 @@
+
+
+{	
+R:!KnowWhatToDo;
+Q:Why are we here?;
+A:Ohh forgetful watson... How can't you remember? We are here to aquire that butiful painting. The owner is already waiting for us in the red room at the end of the hallway.;
+S:KnowWhatToDo;
+}
+
+{
+R:KnowWhatToDo,KnowSebastiansRole;
+Q:How do get them to sell the painting?;
+A:You have to be really convincing little Watson :);
+}
+
+{
+R:ReadLetter;
+Q:How do I talk to them about what i read in the letter?;
+A:You can memorize parts of there answers by highlighting them with your mouse. You can test it here if you want! Remember you can always ask me if something you marked is of importance or not.;
+}
+
+{
+Q:Who are you?;
+A:I'am your mental projection of Sherlock Holmes... because the real one is on vacation of course.;
+}
+
+{
+R:End1;
+Q:I got the painting;
+A:Great Job! We are done here! Let's go! (END);
+}
+
+{
+R:End2;
+Q:We won't get the painting...;
+A:Oh, ok... To bad that we came all the way over here for nothing... Well, we are done here! Let's go! (END);
+;
+}

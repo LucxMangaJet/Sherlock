@@ -1,0 +1,9 @@
+{
+Q:Read;
+A:Dear Mister Holmes,
+As a member of the Musicians' Union London i would like to invite you to a concert. I haven't seen you at any event in the recent past. 
+This Friday at 4pm one of my most talented disciples Clarice Williams gives a concert at the Hippodrome of London. 
+She is a really talented pianist and will surely be able to impress you. 
+Attached to this letter you will find a ticket. 
+Respectfully <NameRichard>Richard> Clarke. 
+}

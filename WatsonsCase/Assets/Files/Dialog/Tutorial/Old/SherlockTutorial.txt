@@ -1,0 +1,108 @@
+
+
+{
+R:!Taunted;
+Q:Who are you?;
+A: I'm sherlock holmes;
+}
+
+{
+R:!Taunted;
+Q:Who am i?;
+A: Watson;
+}
+
+{
+Q:Do you plan on going to this celebration?;
+A:A celebration?  Who's celebration is it then?;
+S:AskedAboutGoing;
+}
+
+{
+R: AskedAboutGoing;
+Q: Ehm, it was signed in some weird way..;
+A: Oh come on Watson, you are a man of science. It is vital, for a detective, to remember such vital information!;
+S:NeedNameEvidence;
+}
+
+
+{@
+Q:SenderSignature;
+A:OSII... Ah yes, of course! It's an old friend of mine, a generous man.;
+S:ToldInterestingSignature;
+}
+
+{
+R:ToldInterestingSignature;
+Q:So, do you plan on going?;
+A:Hmm... You know Watson, i'd rather solve an interesting case than waste my time discussing the old times at a party.
+But i know that you enjoy these sort of events, so i'll give you a challange. If you can find out the real name of my old friend
+we'll go together. It is the writer of one of those 3 letters on the table. Makes sure to bring some evidence too, random guesses are not tollerated.;
+S:Taunted;
+}
+
+{
+R:ReadLetter1,Taunted,!RandomPick,!FinishedTutorial;
+Q:It's the guy from letter 1!;
+A: Don't make random guesses!;
+S:RandomPick;
+}
+
+{
+R:ReadLetter2,Taunted,!RandomPick,!FinishedTutorial;
+Q:It's the guy from letter 2!;
+A:Don't make random guesses!;
+S:RandomPick;
+}
+
+{
+R:ReadLetter3,Taunted,!RandomPick,!FinishedTutorial;
+Q:It's the guy from letter 3!;
+A:Don't make random guesses!;
+S:RandomPick;
+}
+
+{#
+R:!Taunted;
+Q:ViolinEv;
+A:That is a nice drawing of my Violin!;
+}
+
+{#
+R:Taunted;
+Q:ViolinEv;
+A:Yes! Very good! You're on the right track!;
+S:SignatureFromViolin;
+}
+
+
+{@
+R:Taunted,SignatureFromViolin;
+Q:ViolinGift;
+A: Yes, correct, you are on the right track! Yet you haven't told me the name yet!;
+}
+
+{@
+R:Taunted,SignatureFromViolin;
+Q:ViolinName;
+A: Yes, correct, you are on the right track! Yet there is one connection missing!;
+}
+
+{@
+R:Taunted,!SignatureFromViolin;
+Q:ViolinGift,ViolinName;
+A: Well... Yes i was indeed gifted that violin by Mr. Orford, but i don't see the connection to the party..;
+}
+
+{@
+R:Taunted,SignatureFromViolin;
+Q:ViolinGift,ViolinName;
+A: Yes! Very well! OSII stands indeed for Mr. Orfords Company: Orford & Sons Ironwares Inc. I wasn't expecting you to solve it so quicky... Well then... I guess that we are indeed going this island ball. When you are ready wait for me outside.;
+S:FinishedTutorial;
+}
+
+{#
+Q:RickDr;
+A:Ehm.................................................;
+S:Rick;
+}

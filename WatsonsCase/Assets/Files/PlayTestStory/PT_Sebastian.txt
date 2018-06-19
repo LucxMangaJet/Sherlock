@@ -1,0 +1,30 @@
+
+
+{
+R:!KnowWhatToDo;
+Q:Who are you?;
+A:Hello, my name is Sebastian... what are you dooing in my House?;
+}
+
+{
+R:KnowWhatToDo,!KnowSebastiansRole;
+Q:Im want to buy your painting!;
+A:I have no painting to sell!;
+}
+
+{
+R:KnowWhatToDo,KnowSebastiansRole;
+Q:Why dont you want to sell the painting?;
+A:The painting was made by our grandfather... a fantastic Artist. Florian has no right in selling this painting!;
+}
+
+{@
+Q:LetterInformation;
+A:Ohh, I didn't know that he had that kind of problems,but why didn't he tell me? <SebastianWantsApology>I want an apology>!;
+}
+
+{@
+Q:Apology;
+A:Thank you very much sir, but i think that you will have to go home empty-handed, i'll lend my brother some money. I'm sorry for your trouble.;
+S:End2;
+}

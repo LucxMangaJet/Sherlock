@@ -1,0 +1,182 @@
+
+{1
+Q:What happened here?;
+A:I don't know... You were at my concert weren't you?  They told me Richard got killed... He was my mentor, we had a really close relationship. I can't believe it.;
+}
+{1
+Q:Who are you?;
+A:I am Clarice, i am one of Richards disciples.;
+S:KnowClarice;
+}
+{1
+Q:When was the last time you saw your Richard?;
+A:He  wished me good luck right after lunch... it must have been a round 1:30pm. I know how important it is for him to not be bothered during his daily practice.;
+}
+{1
+Q:Where were you between 5pm and 6pm?;
+A:Well you should know! I was performing right in front of you!;
+}
+{1
+R:KnowRigorMortis;
+Q:Where were you between 2pm and 4pm?;
+A:<PreparedConcert>Well i was preparing for the Concert,I was really exited>... I left the house at around 3:20 pm to go to the concert.;
+}
+{1
+Q:What can you tell me about the victim?;
+A:He was more then a teacher to me, he was like a father . You need to know that my real father died during the war. Richard took me under his wings and cared for me as if i was one of his works. I owe him a lot. ;
+}
+{1
+Q:Did you notice anything suspicious?;
+A:No, not really. It was a normal day. Richard practiced playing the piano. <PreparedConcert>And I left right after I prepared my concert>.;
+}
+
+{1
+R:KnowElisabeth;
+Q:What do you think about Elisabeth?;
+A:I've know her for a really long time now, shes such a sweet woman, she is so kind and helpfull..;
+}
+{1
+R:KnowTheodore;
+Q:What do you think about Theodore?;
+A:My little brother? He learns so fast, I'm so proud of him. We've got a really good connection. And I try to support and motivate him as much as i can. But sometimes he really needs a reminder.;
+}
+{1
+R:KnowRobert;
+Q:What do you think about Robert?;
+A:he's a really sweet guy, he got such a good taste, and he's good at dancing... He is not the best student here and isn't quite as motivated as he should be.. He sais that his familiy forces him to learn at this school..;
+}
+
+
+
+
+{@
+Q:BloodyBayonett,StabWounds;
+A:Is that... the weapon Richard got murdered with?;
+}
+{@
+Q:SiblingsColorblind,RedWritingOnGreenList;
+A:Why should anyone else exept Richard himself write on that list? I'm sure that my brother has nothing to do with that. And i wasn't here obviously..;
+}
+{@
+Q:SiblingsColorblind,MulticoloredCompositions;
+A:Please dont think bad now about Richard. He was such a great pianist... <War>You can't understand what a great man he used to be before the war>... When I wrote my first piece totally on my own, he was so exited about it.. Due to a misunderstanding a director thaugh it was written by him... Richard was so enthusiastic when the compliments started coming in. After so many years of failures he finally was accepted again as a great componist.. At first i was happy, It was the least I could do to repay him for beeing my teacher and mentor for years. But then he kept becoming more self-focused and demanding. <ConfessionWhy>Those are my pieces>! <ConfessionWhy>He had no right in stealing my work>!;
+S:SCORE_1;
+}
+
+
+
+{#
+Q:BloodShoesShape;
+A:Is that... What it looks like inside that room? I'll have to move out.. I cannot stand staying here any longer.. My dreams will be haunted. ;
+}
+
+{#
+Q:PianoAutoPlayingMechanism;
+A:That is one of Richards favorite Pianos. He bought it last year in one of the biggest Piano Stores here in London.;
+}
+
+{#
+Q:MissingBayonett;
+A:<War>Yeah Richard was a Soldier in the war and those are his helmet, bajonet and his medal of honor>.;
+}
+
+{#
+Q:BloodyBayonett;
+A:Ouah please put it away this is so disgusting.;
+}
+
+{#
+Q:RedWritingOnGreenList;
+A:<TimeTable>That's his timetable>. Looks normal so far, he planned his day like any other;
+}
+
+{#
+Q:MulticoloredCompositions;
+A:Oh that is an Etude by Richard written in F-Minor. I personally like the decrescendo at the End.;
+}
+
+
+{@
+Q:MissingBayonettText;
+A:Oh, could be that there is a bayonett missing... I am not sure about that.;
+}
+
+{@
+Q:SiblingsColorblind;
+A:Yes, I am colorblind, but I thought it would not be of importance.;
+S:SCORE_2;
+}
+
+{@
+Q:PreparedConcert;
+A:Yes I prepared my concert. It  was really hard to decide which songs to play. So, I asked Elisabeth and she helped me out. I had a stressfull time running around looking for some sheets I couldn't find. But in the end it worked out.;
+}
+
+{@
+Q:Cake;
+A:A cake?  Was is ment for me? So sweat..;
+}
+{@
+Q:NapRobert;
+A:Sry, but I didn't see him. Still it sounds very probable to me. Richard hates... <RichardDislikesRobertTakingNaps>Richard was often upset about him sleeping during the day>.;
+}
+{@
+Q:RepeatingSong;
+A:I don't really know.. I left quite early and i was really focused on other things before that..;
+}
+
+{@
+Q:RedNotes;
+A:<Ticks>Yes, writing with red is one of his Quirks>... I halways had to buy him ink for that..;
+}
+
+{@
+Q:LovesGreen;
+A:Oh yes,he loves green. Thats why his office is painted like that.  <Ticks>It's on of his weird habbits>.;
+}
+
+{@
+Q:TimeTable;
+A:Yeah his time table... <Ticks>One of his strange habits>. He planns the day and checks off everything right after he's done with it.;
+}
+
+{@
+Q:War;
+A:The war changed all of us... I can't even remember my fathers face anymore...  Or Richard befored he closed himself in his music and became selfish.;
+S:SCORE_3;
+}
+
+{@
+Q:RichardDislikesRobertTakingNaps;
+A:You know Richard had his moods. But I don't think you can blame him for that... He valued discipline a lot..;
+}
+
+{@
+Q:Ticks;
+A:The most genius men often have some kind of special habits. <LovesGreen>I know he had this obsession with green>. <TimeTable>And also his strict time table but>... I think most of the time I was able to see over it, see the great man, he used to be..;
+}
+
+{@
+Q:RigorMortis;
+A:You mean that he was already dead for some hours? That's really strange... I mean, they all heard him playing..;
+}
+
+{@
+Q:StabWounds;
+A:Multiple stab wounds? The murderer must have used something like a kitchen knife..;
+}
+
+{@
+Q:ConfessionWhy;
+A:What else do you want me to tell you?  You want to torure me even more?;
+}
+
+{@
+Q:SiblingsWroteOnList;
+A:I cant imagine one of us writing on his time table. Maybe he just picked the wrong color?;
+}
+
+{@
+Q:FemaleMurderer;
+A:You think it was a woman? He really had a problem with... getting close to women you know..;
+}

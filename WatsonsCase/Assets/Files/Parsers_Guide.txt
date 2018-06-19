@@ -1,0 +1,30 @@
+Variables Text File:
+
+:Variables:			// 3 sections, must be in this order, must  all 3 exist
+!KnowWhatHappened;		// variables with a ! at the start are defined as follows:
+!KnowMurderer;			// !VarName -> VarName = false;
+:TextEvidences:			// TextEvidences and ObjEvidences CANNOT be false ( no "!")
+MurdererEvidence;
+:ObjEvindences:
+
+Dialogue Text File:
+		// Every Dialogue need to be encased in {} parentheses, every section requires a semicolon ;
+{"" or "@" or "#" // "" rappresents a normal "ask question" dialogue. "@" dialogues get triggered by text evidences and "#" by drawings (they need to be the first character after the "{")
+R: ; 		// R: defines the variables that will be checked to allow this dialogue ( again ! before the vaiable checks if the variable is false)
+Q: ;		// Q: rappresents the question or the Required Evidence based on the dialogue type
+A: ;		// A: rappresents the Answer given by the NPC. Evidences can be built in by writing: <EvidenceName> .....> (EvidenceName needs to be defined in the Variable text file)
+S: ;		// S: rappresents the Variables that will be set after the dialogue is chosen. (again ! for negation)
+}		//If one of the sections is not require for this dialogue just omit it completely
+
+Schedule Text File:
+
+12:20){Position1,Position2,Position3...}"L" or " "
+
+The first part: (12:20)) will be the time that will trigger these movements
+The second part:{..,..,..} will rappresent the movements done in order
+The third part: L or nothing defines if this movement will be Looping or just executed once
+
+Example:
+16:20){Bathroom1,Office_2} // at 16:20 the character will go to the Bathroom and then to the Office only once
+
+Schedule Text is line sensible! (Every action can only be written in 1 line) but it allows for comments
