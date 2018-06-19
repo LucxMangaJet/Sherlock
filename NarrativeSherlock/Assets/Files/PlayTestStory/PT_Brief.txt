@@ -1,6 +1,0 @@
-
-{
-Q:Read letter;
-A:Dear Customer, we will <LetterInformation>suspend your account unless the debts> are payed by next Friday. Best Regards Tschongör Backstein - Bank of Technological Kindergartens (BTK);
-S:ReadLetter;
-}

@@ -1,5 +1,0 @@
-{
-Q:Read;
-A:Dear Jessica, I just wanted to tell you that i am not angry about these lies going around with you and my beloved Thomas. I know you very well, but more than that i know that Thomas would never do something like that. If you need any help explaining it to Frank please let me know. -Samantha;
-S:LetterFromSamanthaToJessica;
-}

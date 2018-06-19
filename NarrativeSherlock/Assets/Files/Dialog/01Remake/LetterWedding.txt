@@ -1,5 +1,0 @@
-{
-Q:Read;
-A:Please let us marry Thomas, i don't care about the allegations, they are just lies! Please, i love him! -Elena;
-S:LetterForWedding;
-}

@@ -1,5 +1,0 @@
-{
-Q:Read;
-A: NEED TEXT;
-S:ReadLetter2;
-}

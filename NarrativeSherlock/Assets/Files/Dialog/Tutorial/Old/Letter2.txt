@@ -1,5 +1,0 @@
-{
-Q:Read;
-A:Dear Mr. Holmes, i hope that your cases have been going well and that maybe you've had time to practice the <ViolinGift>Violin> i gave you. I've been thinking much lately about the events that brought us together. I'll be visiting London in a few weeks and i'll make sure to come by on sunday, hopefull to find you with some spare time. -<ViolinName>Thomas Orfor>d;
-S:ReadLetter1;
-}
