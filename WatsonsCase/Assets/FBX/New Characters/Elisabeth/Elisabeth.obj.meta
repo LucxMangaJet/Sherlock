@@ -11,6 +11,8 @@ ModelImporter:
     400004: pasted__polySurface1_group
     2100000: lambert9SG
     2100002: initialShadingGroup
+    2100004: pasted__pCube11Mat
+    2100006: pasted__polySurface1_groupMat
     2300000: pasted__pCube11
     2300002: pasted__polySurface1_group
     3300000: pasted__pCube11
@@ -56,7 +58,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0

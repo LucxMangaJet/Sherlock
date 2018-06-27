@@ -5,7 +5,8 @@ using UnityEngine;
 public class PianoKeyPlayer : MonoBehaviour {
     public string keyName;
     AudioSource source;
-    static string Sequence = "";
+     static string sequence = "";
+     static string sequence2 = "";
     float timeUntilUp=0;
     void Start()
     {
@@ -40,14 +41,35 @@ public class PianoKeyPlayer : MonoBehaviour {
 	
 	public void AddToSequence()
     {
-        Sequence += keyName;
-        if (Sequence.Length > 4)
-           Sequence=Sequence.Remove(0, 1);
-        if (Sequence == "FDFC")
+        sequence += keyName;
+        sequence2 += keyName;
+
+        if (sequence.Length == 5)
+           sequence=sequence.Remove(0, 1);
+        if (sequence.Length == 6)
+            sequence = sequence.Remove(0, 2);
+
+        if (sequence2.Length > 9)
+            sequence2 = sequence2.Remove(0, 1);
+        if (sequence.Length == 10)
+            sequence = sequence.Remove(0, 2);
+
+
+        if (sequence == "FDFC")
         {
+
             GameObject g = GameObject.FindGameObjectWithTag("PianoPannel");
             if(g!=null)
-                g.GetComponent<PianoPannelOpener>().StartOpening();
+                g.GetComponent<PianoPannelOpener>().StartOpeningClosing();
+            
+        }
+        if(sequence2 == "EDCEDCEDC")
+        {
+            GameObject.FindGameObjectWithTag("Main").GetComponent<SoundHandler>().PlayClip(SoundHandler.ClipEnum.AutoPlayingMusic2 ,SoundHandler.OutputEnum.Piano);
+        }
+        if (sequence2 == "EDCEDCEDC")
+        {
+            GameObject.FindGameObjectWithTag("Main").GetComponent<SoundHandler>().PlayClip(SoundHandler.ClipEnum.AutoPlayingMusic2, SoundHandler.OutputEnum.Piano);
         }
     }
 

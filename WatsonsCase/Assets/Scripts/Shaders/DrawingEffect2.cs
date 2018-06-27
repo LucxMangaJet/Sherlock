@@ -17,6 +17,6 @@ public class DrawingEffect2 : MonoBehaviour
         Shader.SetGlobalTexture("_Hatch0", h0);
         Shader.SetGlobalTexture("_Hatch1", h1);
         Shader.SetGlobalFloat("_Addlight", extraLight);
-        GetComponent<Camera>().SetReplacementShader(shader, "RenderType");
+        GetComponent<Camera>().SetReplacementShader(shader, "");
     }
 }

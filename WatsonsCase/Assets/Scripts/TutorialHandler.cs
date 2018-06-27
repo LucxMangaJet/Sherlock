@@ -16,19 +16,22 @@ public class TutorialHandler : MonoBehaviour {
     string controls = "Controls:\nWalking - W / A / S / D \nJump - Space \nLog - E / I / TAB\nDrawing - Q / P\nSwitch Evidences - Mousewheel\nSave and Quit Game - F4 \nSave Game - F5\nLoad Game - F9\n(Saving and Loading is disabled in the tutorial)\n";
     bool videoIsOpen = true;
     bool inTransition = false;
+    GameObject Light;
 
 	void Start () {
         state = GetComponent<GameState>();
       //  player = videoObj.GetComponent<VideoPlayer>();
         state.updatedVarEvent += CheckVarUpdate;
         CheckVarUpdate("Start", true);
-       // videoObj.SetActive(false);
+        // videoObj.SetActive(false);
         //RRR.SetActive(true);
         //videoPlayerStartPos = videoObj.GetComponent<RectTransform>().anchoredPosition;
 
 
+        Light = GameObject.FindWithTag("Lighttutorial");
+        Light.SetActive(false);
 
-       GetComponent<DialogueHandler>().enterDialogueEvent += Deactivate;
+        GetComponent<DialogueHandler>().enterDialogueEvent += Deactivate;
        GetComponent<DialogueHandler>().exitDialogueEvent += Activate;
        GetComponent<MenuHandler>().enterMenu += Deactivate;
        GetComponent<MenuHandler>().exitMenu += Activate;
@@ -90,6 +93,11 @@ public class TutorialHandler : MonoBehaviour {
             case "FinishedTutorial":
                 Debug.Log("Unlocking End Door");
                 doorEnd.GetComponentInChildren<DoorMovement>().isLocked = false;
+                doorEnd.GetComponentInChildren<DoorMovement>().Open();
+                Light.SetActive(true);
+                GameObject.FindGameObjectWithTag("Main").GetComponent<SoundHandler>().PlayClip(SoundHandler.ClipEnum.DoorOpening, SoundHandler.OutputEnum.UI);
+
+
                 SetTask("Task: Go to the concert.","When you are ready leave the house.");
                 break;
             case "TellSherlockName":

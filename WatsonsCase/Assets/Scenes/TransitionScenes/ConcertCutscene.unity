@@ -276,17 +276,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You are sitting in the front row.\r\nA beautiful woman sits at the grand
-    piano and begins to play a melancholic song. \r\nThe whole hall is so quiet, you
-    could hear a feather landing.\r\nThe concert ends. As you are about to leave the
-    Hippodrome the beautiful pianist interrupts you:\r\n\u201C\u201DYou are Watson
-    right? Mr. Holmes's assistant? i need your help! Something happened to my teacher
-    and you are a doctor, aren\xB4t you? It\xB4s right around the corner. Please!
-    Also... i think we're going to require you friends help...\u201D\r\nYou agree
-    and go with her.\r On your way out you see a known police officer: \"Please contact
-    Inspector Lestrade and tell him to get Sherlock Holmes and to reach me at the
-    music School here around the corner!\" Knowing the efficiency of the police department
-    it will take at least an hour before Sherlock will be able to join you..."
+  m_Text: "The concert ends. As you are about to leave the Hippodrome the beautiful
+    pianist interrupts you:\r\n\u201DYou are Watson right? Mr. Holmes's assistant?
+    i need your help! Something happened to my teacher and you are a doctor, aren\xB4t
+    you? It\xB4s right around the corner. Please! Also... i think we're going to require
+    your friends help...\u201D\r\nYou agree and go with her.\nOn your way out you
+    see a known police officer: \"Please contact Inspector Lestrade and tell him to
+    get Sherlock Holmes and to reach me at the music School here around the corner!\""
 --- !u!222 &98403474
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -421,7 +417,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: da0e0dd6ca2531046bfbe19104ff5881, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

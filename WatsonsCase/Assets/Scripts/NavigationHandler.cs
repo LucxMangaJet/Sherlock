@@ -32,28 +32,38 @@ public class NavigationHandler : MonoBehaviour {
 		if (inConversation) {
 			RotateTowards (playerPos);
 		} else {
-			if (agent.remainingDistance < 0.5f) {
-				if (currentMovement != null) {
-					if (currentMovementIndx < currentMovement.targets.Length - 1) {
-						currentMovementIndx++;
-						agent.SetDestination (currentMovement.targets [currentMovementIndx]);
-					} else if (currentMovement.continuous) {
-						currentMovementIndx = 0;
-						agent.SetDestination (currentMovement.targets [currentMovementIndx]);
-					}
-				}
-			}
+            if (agent.isOnNavMesh)
+            {
+                if (agent.remainingDistance < 0.5f)
+                {
+                    if (currentMovement != null)
+                    {
+                        if (currentMovementIndx < currentMovement.targets.Length - 1)
+                        {
+                            currentMovementIndx++;
+                            agent.SetDestination(currentMovement.targets[currentMovementIndx]);
+                        }
+                        else if (currentMovement.continuous)
+                        {
+                            currentMovementIndx = 0;
+                            agent.SetDestination(currentMovement.targets[currentMovementIndx]);
+                        }
+                    }
+                }
+            }
 		}
 	}
 
 				public void EnterConversation(){
 		inConversation = true;
-		agent.isStopped = true;
+        if (agent.isOnNavMesh)
+            agent.isStopped = true;
 		playerPos = GameObject.FindGameObjectWithTag ("MainCamera").transform.position;
 	}
 
 	public void ExitConversation(){
 		inConversation = false;
+        if(agent.isOnNavMesh)
 		agent.isStopped = false;
 		playerPos = Vector3.zero;
 

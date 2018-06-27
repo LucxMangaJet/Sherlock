@@ -5,39 +5,39 @@ A:Richard, our teacher, was murdered brutally. Who could possibly do something l
 }
 {1
 Q:Who are you?;
-A:My name is Theodore, me and my sister Clarice are diciples here.;
+A:My name is Theodore, me and my sister Clarice are disciples here.;
 S:KnowTheodore;
 }
 {1
-Q:When was the last time you saw your Richard?;
-A:At the dining table during lunch. After that i continued cleaning the boxroom for the Instruments on the groundfloor.;
+Q:When was the last time you saw Richard?;
+A:At the dining table during lunch. After that I continued cleaning the box room for the Instruments on the ground floor.;
 }
 {1
 Q:Where were you between 5pm and 6pm?;
-A:I was practicing in the practice room on the first floor. We always have to wait for Richard to finish his practice. So i started right around the clock at 5 pm.;
+A:I was practicing in the practice room on the first floor. We always have to wait for Richard to finish his practice. So I started right around the clock at 5 pm.;
 }
 {1
 R:KnowRigorMortis;
 Q:Where were you between 2pm and 4pm?;
-A:<Cake>You know my week was kind of hard and I was in a bad mood so Elizabeth asked me to help her bake a cake>. We worked together in the kitchen, and while it was baking we were talking about funny animals. ;
+A:<Cake>You know my week was kind of hard and I was in a bad mood, so Elizabeth asked me to help her bake a cake>. We worked together in the kitchen, and while it was baking we were talking about funny animals. ;
 }
 {1
 Q:What can you tell me about the victim?;
-A:A prodigy to say the least... His compositions were pure perfection. I'd lay down and listen to his practice every day. I'm filled with sadness at the thought of the great compositions that i will never be able to hear.;
+A:A prodigy to say the least... His compositions were pure perfection. I'd lay down and listen to his practice every day. I'm filled with sadness at the thought of the great compositions that I will never be able to hear.;
 }
 {1
 Q:Did you notice anything suspicious?;
-A:His playing felt very stiff during practice today. <RepeatingSong>He also kept repeting the same piece over and over, probably to master it>. And yet... I'm sure that something was bothering him..;
+A:His playing felt very stiff during practice today. <RepeatingSong>He also kept repeating the same piece over and over, probably to master it>. And yet... I'm sure that something was bothering him..;
 }
 {1
 R:KnowClarice;
 Q:What do you think about Clarice?;
-A:My sister and I suffered alot when our father died, now we're just doing our best to become what our father never had a chance to become... <PreparedConcert>Clarice had a stressfull day, preparing her concert>.;
+A:My sister and I suffered a lot when our father died, now we're just doing our best to become what our father never had a chance to become... <PreparedConcert>Clarice had a stressful day, preparing her concert>.;
 }
 {1
 R:KnowElisabeth;
 Q:What do you think about Elisabeth?;
-A:I like her a lot but i'm always annoyed by the fact that she treats me as if i was 12.;
+A:I like her a lot but I'm always annoyed by the fact that she treats me as if I was 12.;
 }
 {1
 R:KnowRobert;
@@ -46,19 +46,34 @@ A:yes he is a really cool guy, we got a good relationship and understand each ot
 }
 
 
-
-
-{@
-Q:BloodyBayonett,StabWounds;
-A:The killer used that wepaon, I'm sure of it. It's the one from right in front of his office, the killer probably grabbed it on his way to Richard..;
+{1
+R:TalkedBloodyBayonett,TalkedStabWounds;
+Q:The Bayonet has blood on it and would describe perfectly the shape of the wounds..;
+A:The killer used<BayonetIsMurderWeapon> >that weapon, I'm sure of it. It's the one from right in front of his office, the killer probably grabbed it on his way to Richard..;
 }
-{@
-Q:SiblingsColorblind,RedWritingOnGreenList;
+
+{1
+R:TalkedSiblingsColorblind,TalkedRedWritingGreenList;
+Q:You and Clarice are colorblind which could explain the red writing on the green timetable..;
 A:I have great respect for Richard... <TimeTable>I would have never written on that time table>. And I'm sure the same applies for my sister.;
 S:SCORE_10;
 }
 
+{1
+R:TalkedSiblingsColorblind,TalkedMulticoloredCompositions;
+Q:Richard only used red in his compositions, and you are colorblind, did you have something to do with that? ;
+A:I never thought about that... Sadly I don't have the capabilities to write something so beautifully... but... maybe you should talk to Clarice about this..;
+}
 
+{#
+Q:Body;
+A: Is that really necessary? Do you really have to take drawings of everything? Let the man rest in peace..;
+}
+
+{#
+Q:ClosedPiano;
+A: Ehm... What am I supposed to say to a drawing of a piano? We have quite a few in this School...;
+}
 
 {#
 Q:BloodShoesShape;
@@ -68,28 +83,43 @@ S:SCORE_12;
 
 {#
 Q:PianoAutoPlayingMechanism;
-A:I can't explain this... Why should a master like him need a machine that would play on it's own?;
+A:I can't explain this... Why should a master like him need a machine that would play on its own?;
 }
 
 {#
 Q:MissingBayonett;
-A:Thats stuff has been there since before I got here... <War>Robert told me it's Richards equipment from the War>... But i always tried not to talk about that... I've lost too much because of it..;
+A:Thats stuff has been there since before I got here... <War>Robert told me it's Richards equipment from the War>... But I always tried not to talk about that... I've lost too much because of it..;
 }
 
 {#
 Q:BloodyBayonett;
-A:Thats so brutal... But wait is that the bayonett which usually hangs in front of Richards office?  ;
+A:Thats so brutal... But wait is that the bayonet which usually hangs in front of Richards office?;
+S:TalkedBloodyBayonett;
+}
+
+{#
+Q:KitchenKnife;
+A:That's a kitchen knife, very sharp though I don't think that Elizabeth is the murderer... You know she works in the kitchen a lot and is a really nice woman. <Cake>We made a cake together today, as a surprise for Richard and the other Students>!;
+}
+{#
+Q:FireplacePoker;
+A:Im often told to light the furnace to heat the house when it's getting cold.;
+}
+{#
+Q:HeatingPipe;
+A:The broken pipeline from Richards bathroom? Dou you think that has something to do with the crime?;
 }
 
 {#
 Q:RedWritingOnGreenList;
-A:The master planed his every day. One of his many peculiarities. Wait... is the last line written in a different Color? <SiblingsColorblind>You know, me and my sister are Colorblind, so we have trouble understanding all this talk about Richard's weid choices for colors>. But from my understanding he was verry consistant with the color choiches everywhere except in his compositions...;
-S:SCORE_11;
+A:The master planned his every day. One of his many peculiarities. Wait... is the last line written in a different Color? <SiblingsColorblind>You know, me and my sister are Colorblind, so we have trouble understanding all this talk about Richard's weird choices for colors>. But from my understanding he was very consistent with the color choices everywhere except in his compositions...;
+S:SCORE_11,TalkedRedWritingGreenList;
 }
 
 {#
 Q:MulticoloredCompositions;
 A:oh, that is one Richards masterpieces.;
+S:TalkedMulticoloredCompositions;
 }
 
 
@@ -101,11 +131,12 @@ A:Could be... I always tried to not look at this stuff too much... It reminds me
 {@
 Q:SiblingsColorblind;
 A:I think me and my sister are getting along with it quite well. It's not that big of a problem in normal day life.;
+S:TalkedSiblingsColorblind;
 }
 
 {@
 Q:PreparedConcert;
-A:Yes, she has concerts quiet often. She is really good at playing, that.. and the fact that Richard organised a lot of concerts for her. only for her...;
+A:Yes, she has concerts quiet often. She is really good at playing, that.. and the fact that Richard organized a lot of concerts for her. only for her...;
 }
 
 {@
@@ -118,17 +149,17 @@ A:Could be, I don't know. He often takes a nap in the afternoon.;
 }
 {@
 Q:RepeatingSong;
-A:Repeated it? Maybe he had to master it or he just felt like it. <Ticks>I got used to not being suprised by his weird habits>.;
+A:Repeated it? Maybe he had to master it or he just felt like it. <Ticks>I got used to not being surprised by his weird habits>.;
 }
 
 {@
 Q:RedNotes;
-A:Yes that is normal. He told me once, on a day where he was particularly chatty, that his father had a passion for blue<LovesGreen> and that he developped one for green>. Why he then used red only in his compositions is a mystery.;
+A:Yes that is normal. He told me once, on a day where he was particularly chatty, that his father had a passion for blue<LovesGreen> and that he developed one for green>. Why he then used red only in his compositions is a mystery.;
 }
 
 {@
 Q:LovesGreen;
-A:Yes thats true. He was a really special man... always trying to do everything perfectly. <TimeTable>Like his timetable where he would carefully plan his every day>. I guessed he used it to keep himself busy.. ;
+A:Yes that's true. He was a really special man... always trying to do everything perfectly. <TimeTable>Like his timetable where he would carefully plan his every day>. I guessed he used it to keep himself busy.. ;
 }
 
 {@
@@ -138,27 +169,28 @@ A:Oh Yes, I see that really often. He used to say that he didn't want to miss an
 
 {@
 Q:War;
-A:The War? I'm to young to remember. All i can remember is great pain.. As well es the constant precise gongs of the churches bells striking to remember the dead. They were as precise as Richard was in keeping his time <TimeTable>table>.;
+A:The War? I'm too young to remember everything. All I can remember is great pain.. As well as the constant precise gongs of the churches bells striking to remember the dead. They were as precise as Richard was in keeping his time <TimeTable>table>.;
 }
 
 {@
 Q:RichardDislikesRobertTakingNaps;
-A:Richard was a really orgnized man. <TimeTable>With his time table and stuff>. He often had problems with other peoples lack of order.;
+A:Richard was a really organized man. <TimeTable>With his time table and stuff>. He often had problems with other people's lack of order.;
 }
 
 {@
 Q:Ticks;
-A:<War>I would say I'ts a consequence of the war>. <LovesGreen>I guess that his obsession with green was one of the ways to deal with it>.;
+A:<War>I would say It's a consequence of the war>. <LovesGreen>I guess that his obsession with green was one of the ways to deal with it>.;
 }
 
 {@
 Q:RigorMortis;
-A:<TimeTable>But he even wrote in his timetable>... Thats impossible..;
+A:<TimeTable>But he even wrote in his timetable>... That's impossible..;
 }
 
 {@
 Q:StabWounds;
 A:He got stabbed? So the killer must have used a thrusting weapon.;
+S:TalkedStabWounds;
 }
 
 {@
@@ -168,10 +200,10 @@ A:I knew that my sister was a great pianist and that she was real inspiration fo
 
 {@
 Q:SiblingsWroteOnList;
-A:What are you trying to say? Clarice really respected Richards habits... She would not do that... And obviously i wouldn't either!;
+A:What are you trying to say? Clarice really respected Richards habits... She would not do that... And obviously I wouldn't either!;
 }
 
 {@
 Q:FemaleMurderer;
-A:I can't think of any woman other then Elizabeth and my sister, that were close enough to him..;
+A:I can't think of any woman other than Elizabeth and my sister, that were close enough to him..;
 }

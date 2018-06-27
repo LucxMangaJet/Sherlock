@@ -351,8 +351,8 @@ namespace Holmes_Menu
                             }
                         }
 
-
-                        g.GetComponentInChildren<Text>().text = (colored ? "<i>" : "") + s + (colored ? "</i>" : "");
+                        s = (colored ? "<i><b>" : "") + s + (colored ? "</b></i>" : "");
+                        g.GetComponentInChildren<Text>().text = s;
                         RectTransform rect = g.GetComponent<RectTransform>();
                         float width = GetComponent<DialogueHandler>().GetWordWidth(s);
                         float height = Mathf.Ceil(width / boxwidth);

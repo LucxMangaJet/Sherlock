@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class DialogueStarter : MonoBehaviour {
 	 bool inConversation =false,inMenu=false;
-	[SerializeField] GameObject highlightTextObj,pointer;
+	[SerializeField] GameObject highlightTextObj,pointer,directionObj;
 	private Text highlightText;
 	private GameObject handler;
     private GameObject partner;
@@ -49,7 +49,7 @@ public class DialogueStarter : MonoBehaviour {
         bool pointingEndDoor = false;
         bool pointingPianoKey = false;
         //targeting
-        Vector3 dir = pointer.transform.position - transform.position;
+        Vector3 dir = directionObj.transform.position - transform.position;
         dir.Normalize();
 
         if (Physics.Raycast (transform.position+dir*0.3f,dir, out b, 3)) {

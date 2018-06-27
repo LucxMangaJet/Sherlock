@@ -21,6 +21,8 @@ public class DialogueHandler : MonoBehaviour {
 	private DialogueOption currentDialogue=null;
 	private List<GameObject> temp = new List<GameObject> ();
 
+	private VisualFeedbackHandler visualFeedback;
+
 
 	//highlight
 	[SerializeField]	private List<GameObject> answer = new List<GameObject>();
@@ -30,6 +32,7 @@ public class DialogueHandler : MonoBehaviour {
     private void Start()
     {
         state = GetComponent<Holmes_Control.GameState>();
+		visualFeedback = GetComponent<VisualFeedbackHandler> ();
     }
 
 
@@ -115,8 +118,8 @@ public class DialogueHandler : MonoBehaviour {
                     }
                 }
             }
-
-                g.GetComponentInChildren<Text> ().text =(colored? "<i>" : "")+  s + (colored?"</i>" : "");
+                 s = (colored ? "<i><b>" : "") + s + (colored ? "</b></i>" : "");
+                g.GetComponentInChildren<Text> ().text =s;
 				RectTransform rect = g.GetComponent<RectTransform> ();
 				float width = GetWordWidth (s);
 				float height = Mathf.Ceil (width / boxwidth);
@@ -159,6 +162,10 @@ public class DialogueHandler : MonoBehaviour {
 
 
         //quit button
+        if (c.myName == "Sherlock")
+        {
+            return;
+        }
         const string QuitButtonText = "Thats it for now.";
 
         GameObject gQuit = Instantiate(pref_Button, ui_Buttons.transform);
@@ -247,7 +254,8 @@ public class DialogueHandler : MonoBehaviour {
 //		Debug.Log (selectionStartIndx + "  " + selectionEndIndx);
 		if (currentDialogue.evidences != null) {
 			foreach (TextEvidence t in currentDialogue.evidences) {
-				if (selectionStartIndx-3 <= t.startIndx && selectionEndIndx+3 >= t.endIndx) {
+               // Debug.Log(t.name + " " + selectionStartIndx + " " + selectionEndIndx + " " +t.startIndx+" "+t.endIndx);
+                if (selectionStartIndx-3 <= t.startIndx && selectionEndIndx+3 >= t.endIndx) {
 					evidences.Add (t.name);
 				}
 			}
@@ -256,6 +264,9 @@ public class DialogueHandler : MonoBehaviour {
 		HighlightText(-1);
         int len = selectionEndIndx - selectionStartIndx;
         GetComponent<SoundHandler>().PlayClip(len<8?SoundHandler.ClipEnum.UIWritingShort:len<20? SoundHandler.ClipEnum.UIWritingMid: SoundHandler.ClipEnum.UIWritingLong, SoundHandler.OutputEnum.UI);
+
+		// trigger visual feedback for saving evidence
+		visualFeedback.ShowVisualFeedback("Evidence saved!");
 	}
 
 
@@ -263,11 +274,36 @@ public class DialogueHandler : MonoBehaviour {
 	int GetTextIndxFromButtonIndx(int indx,bool end){
 		int counter = 0;
 		for (int i = 0; i < indx+((end)?1:0) ; i++) {
-			counter += 1 + answer [i].GetComponentInChildren<Text> ().text.Length;
+            string s = RemoveSpecialCharacters(answer[i].GetComponentInChildren<Text>().text);
+           // Debug.Log(s);
+            counter += s.Length;
 		}
 
 		return counter;
 	}
+
+     string RemoveSpecialCharacters( string s)
+    {
+        string g = "";
+        bool inParentheses=false;
+        for (int i = 0; i < s.Length; i++)
+        {
+            char c = s[i];
+
+            if (c == '<')
+            {
+                inParentheses = true;
+            }else if (c == '>')
+            {
+                inParentheses = false;
+            }
+            else {
+                if (!inParentheses)
+                    g += c;
+            }
+        }
+        return g;
+    }
 
 	public void PickDialogue (DialogueOption d){
        // Debug.Log("pickingDialogue: "+ d.answer);

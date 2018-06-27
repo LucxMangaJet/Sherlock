@@ -8,7 +8,9 @@ public class EndGameHandler : MonoBehaviour {
     [SerializeField] Character holmes;
     EvidenceHandler evidenceHandler;
     Holmes_Control.GameState state;
-    int scoreChoice = 0, scoreEvidences = 0,scoreChoiceAndEvidences, scoreDialogs = 0,finalScore;
+    int scoreChoice = 0, scoreEvidences = 0,scoreChoiceAndEvidences, scoreDialogs = 0;
+    bool pickedClarice = false;
+    string finalScore = "";
 
     /*
      * Write reassumiing
@@ -36,7 +38,16 @@ public class EndGameHandler : MonoBehaviour {
         } else if (s == "E_ConfirmEnd")
         {
             Debug.Log("End Confirmed. Starting Credits");
-            SceneManager.LoadScene(7);
+            if (pickedClarice && scoreChoiceAndEvidences > 50)
+            {
+                SceneManager.LoadScene(7);
+            }
+            else
+            {
+                SceneManager.LoadScene(8);
+            }
+                
+            
         }
     }
 
@@ -49,7 +60,7 @@ public class EndGameHandler : MonoBehaviour {
         if (vars["EA_How_Bayonett"])
             scoreChoice += 25;
         if (vars["EA_Who_Clarice"])
-            scoreChoice += 25;
+            scoreChoice += 25; pickedClarice=true;
         if (vars["EA_Why_Clarice_Compositions"])
             scoreChoice += 25;
 
@@ -61,12 +72,40 @@ public class EndGameHandler : MonoBehaviour {
             if (vars["SCORE_" + i])
                 scoreDialogs += 8;
         }
-        Debug.Log(scoreDialogs);
+        //Debug.Log(scoreDialogs);
         
         scoreDialogs = Mathf.Clamp(scoreDialogs,0, 100 );
 
         //final score
-        finalScore = Mathf.RoundToInt((scoreChoiceAndEvidences * 40 + scoreDialogs *60) / 100);
+        if (scoreChoiceAndEvidences == 100)
+        {
+            finalScore = "S+";
+            if (scoreDialogs == 100)
+                finalScore = "S++";
+        }else if (scoreChoiceAndEvidences > 90)
+        {
+            finalScore = "S";
+        }
+        else if (scoreChoiceAndEvidences > 80)
+        {
+            finalScore = "A";
+        }
+        else if (scoreChoiceAndEvidences > 70)
+        {
+            finalScore = "B";
+        }
+        else if (scoreChoiceAndEvidences > 60)
+        {
+            finalScore = "C";
+        }
+        else if (scoreChoiceAndEvidences > 50)
+        {
+            finalScore = "D";
+        }
+        else
+        {
+            finalScore = "F";
+        }
     }
 
 
@@ -151,10 +190,10 @@ public class EndGameHandler : MonoBehaviour {
 
         #endregion
 
-        Dialog = "Let's reassume what you said until now... " + who + " killed Richard between " + when + " with a " + how + " because " + why + ". ";
+        Dialog = "Let's reassume what you said until now... " + who + " killed Richard between " + when + " with a " + how + " because " + why + ". Thank you, i'll take it over from here. ";
 
-        Dialog += "SCORES:. Conclusion Score: " + scoreChoiceAndEvidences + "%. Dialogs Score: " + scoreDialogs + "%. <b>Final Score: " + finalScore + "%</b>. ";
-
+        Dialog += "Score: "+ scoreDialogs + "% of important dialogs heard. <b>" + scoreChoiceAndEvidences + "%</b> of case solved. <b><i>Grade: " + finalScore + "</i></b>";
+        //Debug.Log(Dialog);
         holmes.dialogueOptions[holmes.dialogueOptions.Length - 1].answer = Dialog;
 
     }
@@ -169,25 +208,40 @@ public class EndGameHandler : MonoBehaviour {
             //rigormortis
             case "EE_When":
                 if (StringArrayContainsElement(s, "RigorMortis"))
+                {
                     scoreEvidences += 25;
+                }
+                else if (StringArrayContainsElement(s, "PianoAutoPlayingMechanism"))
+                {
+                    scoreEvidences += 20;
+                }
+                   
                 break;
 
             //bloody bayonet and stabwounds
             case "EE_How":
-                bool[] res = StringArrayContainsElements(s, new string[2] { "BloodyBayonett", "StabWounds" });
-                foreach (bool b in res)
+                if (StringArrayContainsElement(s, "BayonetIsMurderWeapon"))
                 {
-                    if (b)
-                        scoreEvidences += Mathf.CeilToInt(25 / res.Length);
+                    scoreEvidences += 25;
                 }
-                break;
+                else if (StringArrayContainsElement(s, "BloodyBayonett"))
+                {
+                    scoreEvidences += 20;
+                }
+
+                    break;
             //female murderer and siblingswroteonlist
             case "EE_Who":
-                 res = StringArrayContainsElements(s, new string[2] {"SiblingsWroteOnList", "FemaleMurderer" });
-                foreach (bool b in res)
+                if (StringArrayContainsElement(s, "FemaleMurderer"))
                 {
-                    if (b)
-                        scoreEvidences += Mathf.CeilToInt(25 / res.Length);
+                    scoreEvidences += 25;
+                }else if (StringArrayContainsElement(s, "SiblingsWroteOnList"))
+                {
+                    scoreEvidences += 10;
+                }
+                else if (StringArrayContainsElement(s, "ConfessionWhy"))
+                {
+                    scoreEvidences += 5;
                 }
                 break;
             //confession Clarice

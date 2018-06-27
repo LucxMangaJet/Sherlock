@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6cd69fe212ebd874599d44278781c61c
+guid: 0cd1c536533d2be459f29c6899062d6d
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
@@ -63,6 +63,8 @@ ModelImporter:
     100114: mixamorig:Spine1
     100116: mixamorig:Spine2
     100118: polySurface16
+    100120: polySurface24
+    100122: polySurface35
     400000: default
     400002: //RootNode
     400004: mixamorig:Head
@@ -123,14 +125,20 @@ ModelImporter:
     400114: mixamorig:Spine1
     400116: mixamorig:Spine2
     400118: polySurface16
+    400120: polySurface24
+    400122: polySurface35
     2100000: No Name
     2300000: default
     3300000: default
     4300000: default
-    4300002: polySurface16
+    4300002: polySurface24
+    4300004: polySurface35
+    4300006: polySurface16
     7400000: mixamo.com
     9500000: //RootNode
     13700000: polySurface16
+    13700002: polySurface24
+    13700004: polySurface35
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -159,35 +167,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: mixamo.com
-      takeName: mixamo.com
-      firstFrame: 0
-      lastFrame: 64
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []

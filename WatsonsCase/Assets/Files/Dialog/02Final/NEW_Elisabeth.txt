@@ -1,7 +1,7 @@
 
 {1
 Q:What happened here?;
-A:Richard... my beloved Richard... I found him at 6 pm as i was looking for him since I had not heard of him for a while... And he was just laying there... Dead... With all that blood... Usually his schedule is to play until  5 in the evening and then come downstairs, so when i heard him stop playing at 5 i was expecting him... I walked upstairs to check on him, i was worried, thought he might have one of his low days, but... when i walked in... Please don't let me talk about this... He is in the room up the stairs.;
+A:Richard... my beloved Richard... I found him at 6 pm as I was looking for him since I had not heard of him for a while... And he was just lying there... Dead... With all that blood... Usually his schedule is to play until  5 in the evening and then come downstairs, so when I heard him stop playing at 5 I was expecting him... I walked upstairs to check on him, I was worried, thought he might have one of his low days, but... when I walked in... Please don't let me talk about this... He is in the room there, right behind me, with the door still open.;
 S:SCORE_4;
 }
 {1
@@ -11,7 +11,7 @@ S:KnowElisabeth;
 }
 {1
 Q:When was the last time you saw your Richard?;
-A:Hmm, let me think ... Oh right i saw him before he started practicing. He went upstairs and closed his door behind him. Must have been nearly 2pm;
+A:Hmm, let me think ... Oh right I saw him before he started practicing. He went upstairs and closed his door behind him. Must have been nearly 2pm;
 }
 {1
 Q:Where were you between 5pm and 6pm?;
@@ -20,7 +20,7 @@ A:I was cleaning the grand piano in the main hall.;
 {1
 R:KnowRigorMortis;
 Q:Where were you between 2pm and 4pm?;
-A:I was drinking tea with Theodore. <Cake>You know we made some some cake together as a suprise for the students and Richard>. He looked really happy after doing this. I guess he needed a break from all the playing.;
+A:I was drinking tea with Theodore. <Cake>You know we made some cake together as a surprise for the students and Richard>. He looked really happy after doing this. I guess he needed a break from all the playing.;
 }
 {1
 Q:What can you tell me about the victim?;
@@ -33,38 +33,48 @@ A:We had hard times recently... but besides that it was a normal day. He practic
 {1
 R:KnowClarice;
 Q:What do you think about Clarice?;
-A:She is such a sweet girl... Richard sort of adopted her after the war... He was like a father to her. I must admit, sometimes i am a little jealous about them.;
+A:She is such a sweet girl... Richard sort of adopted her after the war... He was like a father to her. I must admit, sometimes I am a little jealous about them.;
 }
 
 {1
 R:KnowTheodore;
 Q:What do you think about Theodore?;
-A:A cute boy, i know that he's already 19 but in some way, i feel like he's my little boy. He tries so hard to reach his sisters level.. Sadly i don't think that it's going to happen..;
+A:A cute boy, I know that he's already 19 but in some way, I feel like he's my little boy. He tries so hard to reach his sisters level.. Sadly, I don't think that it's going to happen..;
 }
 {1
 R:KnowRobert;
 Q:What do you think about Robert?;
-A:Honestly I dont like him. He has no aspirations, and just spends his time distracting the other students, but what can we do? The family pays good money to have him study here.. <RichardDislikesRobertTakingNaps>Richard hated it when he procrastinated practice, and instead used the time to sleep in the lounge>.;
+A:Honestly I don't like him. He has no aspirations, and just spends his time distracting the other students, but what can we do? The family pays good money to have him study here.. <RichardDislikesRobertTakingNaps>Richard hated it when he procrastinated practice, and instead used the time to sleep in the lounge>.;
 }
 
 
 
-
-{@
-Q:BloodyBayonett,StabWounds;
-A:You mean someone killed him with that thing? I told him it was not a good Idea to keep those... But thats not important anymore... nothing matters now..;
-}
-{@
-Q:SiblingsColorblind,RedWritingOnGreenList;
-A:Yeah they're colorblind... <SiblingsWroteOnList>So it could make sense that one of them wrote on the list>.. But i don't understand why they would do that..;
+{1
+R:TalkedBloodyBayonett,TalkedStabWounds;
+Q:The Bayonet has blood on it and would describe perfectly the shape of the wounds..;
+A:You mean someone killed him with that thing? I told him it was not a good Idea to keep those... But that's not important anymore... nothing matters now..;
 S:SCORE_5;
 }
 
-
+{1
+R:TalkedSiblingsColorblind,TalkedRedWritingGreenList;
+Q:The siblings are colorblind which could explain the red writing on the green timetable..;
+A:Yeah they're colorblind... <SiblingsWroteOnList>So it could make sense that one of them wrote on the list>.. But I don't understand why they would do that..;
+}
 
 {#
 Q:BloodShoesShape;
 A:Jesus! is this his blood? Why would you show that to me?;
+}
+
+{#
+Q:Body;
+A: Oh lord... My poor Richard... How could this even happen? How could I let that happen? Please... I don't want to see that again..;
+}
+
+{#
+Q:ClosedPiano;
+A: That's his favorite piano... He bought it after the <War>war> right when he started being able to play well again... When he came back we never thought that he would have been able to play again. His hands would shake all the time, he even cut himself multiple times while eating because of it... In my mind, he was able to play again also thanks to that piano.;
 }
 
 {#
@@ -74,22 +84,38 @@ A:Why would he have that? Does that mean that he wasn't practicing today?;
 
 {#
 Q:MissingBayonett;
-A:<War>Thats one of his trophyies from the war>. <MissingBayonettText> Something seems to be missing there>!;
+A:<War>Thats one of his trophies from the war>. <MissingBayonettText> Something seems to be missing there>!;
 }
 
 {#
 Q:BloodyBayonett;
 A:I can't look at that, so bloody.;
+S:TalkedBloodyBayonett;
+}
+
+{#
+Q:KitchenKnife;
+A:Thats my kitchen knife... I would never even think about hurting anyone.;
+}
+{#
+Q:FireplacePoker;
+A:Thats a sharp thing... You use it for the fireplace. Do you think Richard got killed with that thing?;
+}
+{#
+Q:HeatingPipe;
+A:Richard told Robert to fix it some time ago... It looks like he forgot.;
 }
 
 {#
 Q:RedWritingOnGreenList;
-A:Thats strange... he wrote the last line in red color... impossible,  As a perfectionist he would never do this.<LovesGreen> He only used green>!;
+A:Thats strange... he wrote the last line in red color... impossible, as a perfectionist he would never do this.<LovesGreen> He only used green>!;
+S:TalkedRedWritingGreenList;
 }
 
 {#
 Q:MulticoloredCompositions;
-A:Yeah he started doing that after the <War>war>.  Nobody knows what brought him to this weird behaviour..;
+A:Yeah he started doing that after the <War>war>.  Nobody knows what brought him to this weird behavior..;
+S:TalkedMulticoloredCompositions;
 }
 
 
@@ -101,6 +127,7 @@ A:One of the blades seems to be missing... <War>I was so relieved when he came b
 {@
 Q:SiblingsColorblind;
 A:Thats true... It's not a big deal. <LovesGreen>Sometimes they have a hard time understanding the discussions about Richards obsession with green>.;
+S:TalkedSiblingsColorblind;
 }
 
 {@
@@ -114,22 +141,22 @@ A:The cake was supposed to be a surprise for Clarices concert..;
 }
 {@
 Q:NapRobert;
-A:Yes, he said that he wanted to take a nap, but i didn't really see him.;
+A:Yes, he said that he wanted to take a nap, but I didn't really see him.;
 }
 {@
 Q:RepeatingSong;
-A:Now that i think about it you could be right. He really repeated one song the whole time. Thats quite unusual for him. He has such a wide repartoire and he usually practices large variaty of pieces..;
+A:Now that I think about it you could be right. He really repeated one song the whole time. That's quite unusual for him. He has such a wide repertoire and he usually practices large variety of pieces..;
 S:SCORE_6;
 }
 
 {@
 Q:RedNotes;
-A:<War>Yes thats normal since he came back from the war>;
+A:<War>Yes that's normal since he came back from the war>;
 }
 
 {@
 Q:LovesGreen;
-A:Yes he really loves green, that is kind of sweet don't you think?  <War>After the war it got kind of out of hands, he would only use green>. And then suddenly he started using red in his compositions. I like to belive that it helped him face the terrors of those years..;
+A:Yes, he really loves green, that is kind of sweet don't you think?  <War>After the war it got kind of out of hands, he would only use green>. And then suddenly he started using red in his compositions. I like to believe that it helped him face the terrors of those years..;
 }
 
 {@
@@ -149,7 +176,7 @@ A:Richard was really strict with Robert sometimes..;
 
 {@
 Q:Ticks;
-A:He's trying to not let anything get close to him. These quirks are his way to fell safe. <War>Oh Good.. the war changed him so much>. I'ts really hard for me sometimes to see how he suffered from the stuff he experienced.;
+A:He's trying to not let anything get close to him. These quirks are his way to feel safe. <War>Oh Good.. the war changed him so much>. It's really hard for me sometimes to see how he suffered from the stuff he experienced.;
 }
 
 {@
@@ -159,12 +186,13 @@ A:I don't understand. I heard him playing just a few minutes before I opened the
 
 {@
 Q:StabWounds;
-A:Oh... I saw the stab wounds when i found him, but i can't imagine there being so many... Who would do something like this?;
+A:Oh... I saw the stab wounds when I found him, but I can't imagine there being so many... Who would do something like this?;
+S:TalkedStabWounds;
 }
 
 {@
 Q:ConfessionWhy;
-A:Oh my Good... A part of me most likely knew that already... You know that explains a lot. Poor Richard, why didn't he tell me?;
+A:Oh, my God... A part of me most likely knew that already... You know that explains a lot. Poor Richard, why didn't he tell me?;
 }
 
 {@

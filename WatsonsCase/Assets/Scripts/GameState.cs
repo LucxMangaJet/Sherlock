@@ -28,7 +28,7 @@ namespace Holmes_Control
             locationsByName = new Dictionary<string, Vector3>();
             textEvidences = new List<string>();
             objEvidences = new List<string>();
-            Time_NewMinute += Save;
+            //Time_NewMinute += Save;
 
             ReadVariablesAndEvidences();
             SaveLocationsInDictionary();

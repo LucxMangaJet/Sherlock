@@ -14,12 +14,16 @@ public class SoundHandler : MonoBehaviour {
           UIWritingLong,
           UICrossOut,
           UIDrawing,
-          UITurningPage
+          UITurningPage,
+          AutoPlayingMusic,
+          AutoPlayingMusic2,
+          DoorOpening
     }
 
     public enum OutputEnum
     {
-        UI
+        UI,
+        Piano
     }
 
     public AudioClip[] clips_ClosingBook;
@@ -29,6 +33,8 @@ public class SoundHandler : MonoBehaviour {
     public AudioClip[] clips_Drawing;
     public AudioClip[] clips_CrossOut;
     public AudioClip[] clips_TurningPage;
+    public AudioClip[] clips_DoorOpening;
+    public AudioClip clips_AutoPlayingMusic, clips_AutoPlayingMusic2;
     public AudioSource[] outputs;
 
 	public void PlayClip(ClipEnum c, OutputEnum o )
@@ -72,6 +78,15 @@ public class SoundHandler : MonoBehaviour {
                 break;
             case ClipEnum.UIWritingLong:
                 a = clips_WritingLong[Random.Range(0, clips_WritingLong.Length)];
+                break;
+            case ClipEnum.AutoPlayingMusic:
+                a = clips_AutoPlayingMusic;
+                break;
+            case ClipEnum.AutoPlayingMusic2:
+                a = clips_AutoPlayingMusic2;
+                break;
+            case ClipEnum.DoorOpening:
+                a = clips_DoorOpening[Random.Range(0, clips_DoorOpening.Length)];
                 break;
             default:
                 break;

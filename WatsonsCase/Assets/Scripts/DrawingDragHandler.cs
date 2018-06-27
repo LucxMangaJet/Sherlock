@@ -10,6 +10,8 @@ public class DrawingDragHandler : MonoBehaviour ,IDragHandler,IEndDragHandler,IB
     Transform startParent;
     Vector2 startPos = Vector2.zero;
 
+	private VisualFeedbackHandler visualFeedback;
+
      void Start()
     {
         myTransform = GetComponent<RectTransform>();
@@ -17,7 +19,8 @@ public class DrawingDragHandler : MonoBehaviour ,IDragHandler,IEndDragHandler,IB
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         main = GameObject.FindGameObjectWithTag("Main");
         canvas = GameObject.FindGameObjectWithTag("Menu");
-        parent = canvas.GetComponent<RectTransform>(); 
+        parent = canvas.GetComponent<RectTransform>();
+		visualFeedback = main.GetComponent<VisualFeedbackHandler>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -53,6 +56,10 @@ public class DrawingDragHandler : MonoBehaviour ,IDragHandler,IEndDragHandler,IB
         if (Input.mousePosition.x > Screen.width * 3 / 4)
         {
             main.GetComponent<EvidenceDetecting>().OperateButton(false);
+
+			// trigger visual feedback for not saving the image evidence
+			visualFeedback.ShowVisualFeedback("Drawing Discarded");
+
         } else if (Input.mousePosition.x < Screen.width  / 4)
         {
             main.GetComponent<EvidenceDetecting>().OperateButton(true);

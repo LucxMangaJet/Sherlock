@@ -12,7 +12,8 @@ public class matchGrid : MonoBehaviour {
 	[SerializeField]
 	bool clearDoubles = false;
 
-	void Update()
+
+    void Update()
 	{
 		//if (gameObject == Selection.activeGameObject) {
 			if (half == false) {
@@ -34,4 +35,7 @@ public class matchGrid : MonoBehaviour {
 			clearDoubles = false;
 		}
 	}
+
+	Color red = new Color ();
 }
+	

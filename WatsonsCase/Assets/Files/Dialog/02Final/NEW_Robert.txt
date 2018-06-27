@@ -6,13 +6,13 @@ A:Richard, the great pianist, was killed... it is really devastating... He was s
 
 {1
 Q:Who are you?;
-A:I'm Robert , i've been learning from Richard for a few months now. But we developed a kind of.. realtionship. I'm not the best student but it was an honor to have him as a teacher.;
+A:I'm Robert , I've been learning from Richard for a few months now. But we developed a kind of.. relationship. I'm not the best student but it was an honor to have him as a teacher.;
 S:KnowRobert;
 }
 
 {1
-Q:When was the last time you saw your Richard?;
-A:It was right after lunch with everybody  from... uh 12:45 am to 1:30 pm... I wanted to show him a new composition i made, so i went up to his room right before he started practicing. Well, I lef this practice room right before he started practicing... So at 2PM;
+Q:When was the last time you saw Richard?;
+A:It was right after lunch with everybody  from... uh 12:45 am to 1:30 pm... I wanted to show him a new composition I made, so I went up to his room right before he started practicing. Well, I left this practice room right before he started practicing... So, at 2PM;
 }
 {1
 R:KnowRigorMortis;
@@ -25,16 +25,16 @@ A:<NapRobert>I took a nap in the lounge>.;
 }
 {1
 Q:What can you tell me about the victim?;
-A:Not quiet a lot. I've been here only for 7 months. <TimeTable>But I noticed that he had a strict timetable>. He was literally writing everything down and would plan his whole day.;
+A:Not quite a lot. I've been here only for 7 months. <TimeTable>But I noticed that he had a strict timetable>. He was literally writing everything down and would plan his whole day.;
 }
 {1
 Q:Did you notice anything suspicious?;
-A:How? I was sleeping most of the time. And after i woke up I did not noticed anything special. Except for the tea that I drunk, the tea bag was still in the mug..;
+A:How? I was sleeping most of the time. And after I woke up I did not notice anything special. Except for the tea that I drunk, the tea bag was still in the mug..;
 }
 {1
 R:KnowClarice;
 Q:What do you think about Clarice?;
-A:Clarice is a really nice woman... The kind of woman you could imagine spending your life with.. Sadly she doesn't seem to be interested in things like that..;
+A:Clarice is a really nice woman... The kind of woman you could imagine spending your life with.. Sadly, she doesn't seem to be interested in things like that..;
 S:SCORE_7;
 }
 {1
@@ -45,26 +45,36 @@ A:Elisabeth? I don't really know her too well. She feels like a kind and lovely 
 {1
 R:KnowTheodore;
 Q:What do you think about Theodore?;
-A:He's a really good friend. We spend a lot of time together, it's nice to have someone that is not compleatly focused on the music all the time. He makes my time spent here at the school more endurable..;
+A:He's a really good friend. We spend a lot of time together, it's nice to have someone that is not completely focused on the music all the time. He makes my time spent here at the school more endurable..;
 }
 
 
-
-
-{@
-Q:BloodyBayonett,StabWounds;
-A:Richard got murdered with his own weapon.How ironical.. The burdens he brought back from the war finally killed him. I'm sorry if i'm being insensible..;
-}
-{@
-Q:SiblingsColorblind,RedWritingOnGreenList;
-A:Thats very interesting.. <SiblingsWroteOnList>So one of them wrote on that list>? I'm not sure why they would do that but it seams to be the logical conclusion..;
+{1
+R:TalkedBloodyBayonett,TalkedStabWounds;
+Q:The Bayonet has blood on it and would describe perfectly the shape of the wounds..;
+A:Richard got murdered with his own weapon. How ironical.. The burdens he brought back from the war finally killed him. I'm sorry if I'm being insensible..;
 }
 
+{1
+R:TalkedSiblingsColorblind,TalkedRedWritingGreenList;
+Q:The siblings are colorblind which could explain the red writing on the green timetable..;
+A:Thats very interesting.. <SiblingsWroteOnList>So one of them wrote on that list>? I'm not sure why they would do that but it seems to be the logical conclusion..;
+}
 
 
 {#
 Q:BloodShoesShape;
 A:Do you think that the murderer left those?;
+}
+
+{#
+Q:Body;
+A: What a terrible fate... You'd expect that after surviving the <War>war> he deserved a painless death..;
+}
+
+{#
+Q:ClosedPiano;
+A:Oh, that's the piano in Richards office right? I once was punished and had to clean all the pianos in the school, but when I tried to clean that one Richard got awfully mad... I still don't know why..;
 }
 
 {#
@@ -74,22 +84,38 @@ A:Oh, I have seen this before. You can put a paper template between it and then 
 
 {#
 Q:MissingBayonett;
-A:I think thats the equipment he wore during the war. But I don'really know. <War>Only the fact that the war changed him a lot>. His creativity decreased. <Ticks>He also developped some strange habbits>.;
+A:I think that's the equipment he wore during the war. But I don't really know. <War>Only the fact that the war changed him a lot>. His creativity decreased. <Ticks>He also developed some strange habits>.;
 }
 
 {#
 Q:BloodyBayonett;
 A:Oh, is that the weapon that was used by murderer?;
+S:TalkedBloodyBayonett;
+}
+
+{#
+Q:KitchenKnife;
+A:It looks dangerous... do you think this is the weapon the murderer used?;
+}
+{#
+Q:FireplacePoker;
+A:I got my Hands burned by lighting the fire once.. since then I know what that thing is for.;
+}
+{#
+Q:HeatingPipe;
+A:Ohh yes It's broken... Richard told me to repair it... I was already planning on doing that..;
 }
 
 {#
 Q:RedWritingOnGreenList;
-A:<RedNotes>The master only used red color for his pieces>.   <LovesGreen>Furthermore Theodore told me that Richard is in love with the color green, i still don't know why he would only use red in his compositions>.;
+A:<RedNotes>The master only used red color for his pieces>.   <LovesGreen>Furthermore Theodore told me that Richard is in love with the color green, I still don't know why he would only use red in his compositions>.;
+S:TalkedRedWritingGreenList;
 }
 
 {#
 Q:MulticoloredCompositions;
 A:That is one of his strangely colored pieces... Nobody knows what goes on in the mind of a genius... <Ticks>He had some crazy habits>.;
+S:TalkedMulticoloredCompositions;
 }
 
 
@@ -100,12 +126,13 @@ A:Yeah, I was interested in that stuff for some time, and I'm sure, there were t
 
 {@
 Q:SiblingsColorblind;
-A:It could be... As i said i have only been here for 7 months so i'm not so informed about everyone.;
+A:It could be... As I said I have only been here for 7 months so I'm not so informed about everyone.;
+S:TalkedSiblingsColorblind;
 }
 
 {@
 Q:PreparedConcert;
-A:<NapRobert>I don't know, i was sleeping>. She looked quite nervous at lunch. I don't know if it was because of the concert though..;
+A:<NapRobert>I don't know, I was sleeping>. She looked quite nervous at lunch. I don't know if it was because of the concert though..;
 }
 
 {@
@@ -114,16 +141,16 @@ A:She is a really talented baker.. Maybe she can do something with that once thi
 }
 {@
 Q:NapRobert;
-A:<RichardDislikesRobertTakingNaps>Richard often called me a fool and hated it when I used the launge for sleep>. I feel really sorry now!;
+A:<RichardDislikesRobertTakingNaps>Richard often called me a fool and hated it when I used the lounge for sleep>. I feel really sorry now!;
 }
 {@
 Q:RepeatingSong;
-A:I don't know. Normally he doesn't do that. <TimeTable>You know he has this timetable, where he plans his day very carefully>. So it could be written on there.;
+A:I don't know. Normally he doesn't do that. <TimeTable>You know he has this timetable, where he plans his day very carefully>. So, it could be written on there.;
 }
 
 {@
 Q:RedNotes;
-A:Yes like I told you he only used red in his compositions..;
+A:Yes, like I told you he only used red in his compositions..;
 }
 
 {@
@@ -133,17 +160,17 @@ A:Yes, he loved green. But on the other hand, he also used <RedNotes>red in his 
 
 {@
 Q:TimeTable;
-A:Ah thats his timetables.  He's  got an organized day. I thought to make one too, its so practical.. Especially when you have a lot to do like him. ;
+A:Ah that's his timetable.  He's  got an organized day. I thought to make one too, it's so practical.. Especially when you have a lot to do like him. ;
 }
 
 {@
 Q:War;
-A:I think Richard has experienced some really hard things during the war. He really longed for peace. <LovesGreen>Thats why he loved green>. Green is the color of peace.;
+A:I think Richard has experienced some really hard things during the war. He really longed for peace. <LovesGreen>That's why he loved green>. Green is the color of peace.;
 }
 
 {@
 Q:RichardDislikesRobertTakingNaps;
-A:I feel guilty for beeing such a bad student. I wish i would have listened to him more often.;
+A:I feel guilty for being such a bad student. I wish I would have listened to him more often.;
 }
 
 {@
@@ -158,13 +185,13 @@ A:Interesting.. You know that everybody heard him playing right? What if...  Wha
 
 {@
 Q:StabWounds;
-A:He was stabbed to death? Did he not defend himself? <War>You know he fought in the War>, he was definitly trained to defend himself.;
-S:SCORE_8;
+A:He was stabbed to death? Did he not defend himself? <War>You know he fought in the War>, he was definitely trained to defend himself.;
+S:SCORE_8,TalkedStabWounds;
 }
 
 {@
 Q:ConfessionWhy;
-A:They were so close. In someway it felt like she was his daughter, so i'm not really suprised. What would the public think about that...;
+A:They were so close. In some way it felt like she was his daughter, so I'm not really surprised. What would the public think about that...;
 }
 
 {@

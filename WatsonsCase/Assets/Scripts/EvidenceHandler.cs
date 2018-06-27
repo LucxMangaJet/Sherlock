@@ -9,8 +9,10 @@ public class EvidenceHandler : MonoBehaviour {
     [SerializeField] RectTransform i_EvidencesTransform;
     [SerializeField] GameObject pref_Evidence, pref_Drawing, pref_Text;
 
+
     private MenuHandler menu;
     private SoundHandler sound;
+	private VisualFeedbackHandler visualFeedback;
 
     //transitions
     public bool inDialogue = false;
@@ -37,6 +39,7 @@ public class EvidenceHandler : MonoBehaviour {
         selectedEvidencesIndx = new List<int>();
         menu = GetComponent<MenuHandler>();
         sound = GetComponent<SoundHandler>();
+		visualFeedback = GetComponent<VisualFeedbackHandler>();
 
         GetComponent<MenuHandler>().enterMenu += EnterMenu;
         GetComponent<MenuHandler>().exitMenu += ExitMenu;
@@ -65,6 +68,9 @@ public class EvidenceHandler : MonoBehaviour {
     public void AddDrawing(Drawing d)
     {
         evidences.Add(new UnitedEvidence(null, new Drawing[1] { d }));
+
+		// trigger visual feedback for adding drawing evidence
+		visualFeedback.ShowVisualFeedback("Drawing Added!");
     }
 
     public void AddTextEvidence(SavedTextEvidence s)
@@ -86,6 +92,8 @@ public class EvidenceHandler : MonoBehaviour {
     public void AddEvidence(UnitedEvidence e)
     {
         evidences.Add(e);
+		// trigger visual feedback for adding evidence
+		visualFeedback.ShowVisualFeedback("Evidence Added!");
     }
 
     public bool RemoveEvidence(UnitedEvidence s)
@@ -202,7 +210,7 @@ public class EvidenceHandler : MonoBehaviour {
             Destroy(postIts[i]);
         }
         postIts.Clear();
-        float boxWidth = 250;
+        float boxWidth = 200;
         //float boxHeight = 0;
         int limit = evidences.Count >= 6 ? 6 : evidences.Count;
 
@@ -210,15 +218,12 @@ public class EvidenceHandler : MonoBehaviour {
         for (int k = 0; k < limit; k++)
         {
             int i = lookedatEvidenceIndx + k;
-
-            if (i >= evidences.Count)
-            {
-                i = i - evidences.Count;
-            }
+            i = i % evidences.Count;
+            
 
 
 
-            float minHeight = -187;
+            float minHeight = -150;
             float boxHeight = 0;
             UnitedEvidence s = evidences[i];
             GameObject g = Instantiate(pref_Evidence, i_EvidencesTransform);
@@ -277,11 +282,11 @@ public class EvidenceHandler : MonoBehaviour {
 
 
         //PlacePostits;
-        float posy =  Screen.height * 0.5f;
+        
+        float posy =  720 * 0.5f;
         for (int i = 0; i < postIts.Count; i++)
         {
-            float sizey = postIts[i].GetComponent<RectTransform>().sizeDelta.y;
-            postIts[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(boxWidth / 2, posy - sizey / 2);
+            postIts[i].GetComponent<RectTransform>().anchoredPosition = new Vector2(boxWidth / 2, posy );
             postIts[i].transform.SetSiblingIndex(postIts.Count - 1 - i);
             posy += 25;
         }
@@ -290,7 +295,7 @@ public class EvidenceHandler : MonoBehaviour {
 
         //DisplayMergeObj
 
-        float minHeightM = -187;
+        float minHeightM = -150;
         float boxHeightM = 0;
         if (evidenceInMergeOption >= 0)
         {
@@ -484,21 +489,17 @@ public class EvidenceHandler : MonoBehaviour {
         //i_AskAbout.SetActive(false);
 
 
-        if (selectedEvidences.Contains(evidences[i]))
-        {
-            selectedEvidences.Remove(evidences[i]);
-            if (selectedEvidences.Count < 1)
-            {
-                evidenceInMergeOption = -1;
-            }
-        }
-        else
-        {
-         evidences.Remove(evidences[i]);
-        }
+       
+       
+         evidences.RemoveAt(i);
+        
         RefitEvidenceContent();
 
         sound.PlayClip(SoundHandler.ClipEnum.UICrossOut, SoundHandler.OutputEnum.UI);
+
+		// trigger visual feedback for deleting evidence
+		visualFeedback.ShowVisualFeedback("Evidence Deleted!");
+
     }
     
     public void MergeTextEvidences()
@@ -538,6 +539,9 @@ public class EvidenceHandler : MonoBehaviour {
         //i_Merge.SetActive(false);
         //i_AskAbout.SetActive(false);
         sound.PlayClip(len < 8 ? SoundHandler.ClipEnum.UIWritingShort : len < 20 ? SoundHandler.ClipEnum.UIWritingMid : SoundHandler.ClipEnum.UIWritingLong, SoundHandler.OutputEnum.UI);
+
+		// trigger visual feedback for merging evidence
+		visualFeedback.ShowVisualFeedback("Evidences Merged!");
     }
 
     public void TryMerge(int i)

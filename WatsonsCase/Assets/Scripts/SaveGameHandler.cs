@@ -13,9 +13,11 @@ public class SaveGameHandler : MonoBehaviour {
 
     public bool SceneIsNewGame = true;
 
+	VisualFeedbackHandler visualFeedback;
+
 	// Use this for initialization
 	void Start () {
-
+		visualFeedback = GetComponent<VisualFeedbackHandler>();
 	}
 	
     public void SaveGame()
@@ -74,6 +76,9 @@ public class SaveGameHandler : MonoBehaviour {
                     }
                 }
             }
+
+			// trigger visual feedback for saving the game
+			visualFeedback.ShowVisualFeedback("Game saved!");
 
             Debug.Log("Saved Successfully at: " +Application.persistentDataPath + "/SaveGame");
         }
@@ -135,6 +140,9 @@ public class SaveGameHandler : MonoBehaviour {
             {
                 charObjects[i].GetComponent<Character>().LoadCharacterFromSave(save.characters[i]);
             }
+
+			// trigger visual feedback for saving the game
+			visualFeedback.ShowVisualFeedback("Savefile loaded!");
 
             Debug.Log("Loading successful");
             return true;

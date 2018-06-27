@@ -4,12 +4,12 @@
 
 	}
 		SubShader{
-			Tags { "RenderType" = "Opaque" }
+		//	Tags { "RenderType" = "Opaque"  }
 			LOD 200
 
 			CGPROGRAM
 			// Physically based Standard lighting model, and enable shadows on all light types
-			#pragma surface surf Standard fullforwardshadows finalcolor:BlackAndWhite vertex vert
+			#pragma surface surf Standard fullforwardshadows finalcolor:BlackAndWhite
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
@@ -28,9 +28,9 @@
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
 		// #pragma instancing_options assumeuniformscaling
-		UNITY_INSTANCING_BUFFER_START(Props)
+		//UNITY_INSTANCING_BUFFER_START(Props)
 			// put more per-instance properties here
-		UNITY_INSTANCING_BUFFER_END(Props)
+		//UNITY_INSTANCING_BUFFER_END(Props)
 
 
 			fixed3 Hatching(float2 _uv, half3 col)
@@ -75,11 +75,12 @@
 			color.g = c;
 			color.b = c;
 			//float2 pos = float2((abs(IN.worldPos.x)+abs(IN.worldPos.z)), abs(IN.worldPos.y));
-			color.rgb = Hatching(IN.uv_MainTex*3, color.rgb);
-			
+			//fixed4 d = tex2D(_MainTex, IN.uv_MainTex);
+			color.rgb = Hatching(IN.uv_MainTex*3, color.rgb)*(1-pow(abs(c-1),3));
 
 		}
 		ENDCG
 	}
+
 	FallBack "Diffuse"
 }

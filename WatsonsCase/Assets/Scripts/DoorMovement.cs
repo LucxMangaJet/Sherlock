@@ -9,12 +9,12 @@ public class DoorMovement : MonoBehaviour {
 	public bool toOpen=true;
 
 	public bool isLocked =false;
-	// Use this for initialization
+	
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
 	
-	// Update is called once per frame
+	
 	void Update () {
 		Vector3 v	= transform.localEulerAngles;
 		if (freezeLock <= 0) {
@@ -26,23 +26,32 @@ public class DoorMovement : MonoBehaviour {
 				rb.angularVelocity = Vector3.zero;
 				transform.localEulerAngles = new Vector3 (0, -90, 0);
 				toOpen = false;
-			} 
+			} else if(v.y <97 && v.y > 83)
+            {
+                rb.angularVelocity = Vector3.zero;
+                transform.localEulerAngles = new Vector3(0, 90, 0);
+                toOpen = false;
+            }
 		} else {
 			freezeLock -= Time.deltaTime;
 		}
 		if(lockCd>0){
 			lockCd -= Time.deltaTime;
-	}
+	    }
 
 
 
 	}
 
-	public void Open(){
-		if (isLocked)
-			return;
+	public void Open()
+    {
+        if (isLocked)
+        {
+            return;
+        }
 		lockCd = 1f;
-		rb.AddForceAtPosition (transform.right * 45, transform.GetChild (0).position);
+        freezeLock = 0.2f;
+        rb.AddForceAtPosition (transform.right * 45, transform.GetChild (0).position);
 	}
 
 	public void Interact(){
@@ -60,5 +69,6 @@ public class DoorMovement : MonoBehaviour {
 		} else {
 			rb.AddForceAtPosition (-transform.right * 45, transform.GetChild (0).position);
 		}
+        GameObject.FindGameObjectWithTag("Main").GetComponent<SoundHandler>().PlayClip(SoundHandler.ClipEnum.DoorOpening, SoundHandler.OutputEnum.UI);
 	}
 }

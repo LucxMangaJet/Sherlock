@@ -49,14 +49,11 @@ public class EvidenceDragHandler : MonoBehaviour ,IDragHandler,IEndDragHandler,I
         Vector2 localpos = Input.mousePosition;
         // RectTransformUtility.ScreenPointToLocalPointInRectangle(parent, Input.mousePosition, mainCam, out localpos);
         //Debug.Log(localpos);
-        if (Screen.width > 1280)
-        {
+       
             localpos.x = 1280 * (localpos.x / Screen.width);
-        }
-        if (Screen.height> 720)
-        {
+        
             localpos.y = 720 * (localpos.y / Screen.height);
-        }
+        
         myTransform.anchoredPosition=localpos;
     }
 
@@ -69,12 +66,12 @@ public class EvidenceDragHandler : MonoBehaviour ,IDragHandler,IEndDragHandler,I
         i_VisualHelpDelete.SetActive(false);
         i_VisualHelpMerge.SetActive(false);
 
-        if (Input.mousePosition.x > Screen.width * 2 / 4)
+        if (Input.mousePosition.x > Screen.width /2 && Input.mousePosition.y > Screen.height/2)
         {
            main.GetComponent<EvidenceHandler>().AskAboutEvidence(selectedIndx);
            // Debug.Log("Asking About Evidence");
 
-        }else if (Input.mousePosition.x < Screen.width / 4 && Input.mousePosition.y<Screen.height/5)
+        }else if (Input.mousePosition.x < Screen.width / 4 && Input.mousePosition.y<Screen.height*3/8)
         {
             main.GetComponent<EvidenceHandler>().DeleteEvidence(selectedIndx);
             Debug.Log("Delete");

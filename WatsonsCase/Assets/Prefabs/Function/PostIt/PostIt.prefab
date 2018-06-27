@@ -89,6 +89,7 @@ MonoBehaviour:
   i_VisualHelpDelete: {fileID: 0}
   i_VisualHelpMerge: {fileID: 0}
   inDialog: 0
+  isInMergeOption: 0
   selectedIndx: -1
 --- !u!114 &114417829741091182
 MonoBehaviour:
@@ -187,7 +188,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 125, y: -289}
-  m_SizeDelta: {x: 250, y: 187}
+  m_SizeDelta: {x: 200, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224863673901530294
 RectTransform:
