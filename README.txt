@@ -14,8 +14,8 @@ All Rights Reserved
 The "main" scene of the game can be find under /Assets/Scenes/2_levelLayout2
 The Scripts are located at /Assets/Scripts/
 
-The Core Scripts of the game are added as Components to the "GameHandle" Class which is parented to the 
-"GameNecessities" GameObject 
+The Core Scripts of the game are added as Components to the "GameHandle" GameObject which is parented to the 
+"GameNecessities" GameObject .
 
 While the "GameState" script is a good starting point it does not play the role of a general game-managing script, since all the features are implemented
-in the respective scripts
+in the respective scripts.
