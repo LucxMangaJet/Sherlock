@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Holmes_Control
@@ -14,6 +15,7 @@ namespace Holmes_Control
         public Dictionary<string, bool> variables;
         [SerializeField] GameObject locationContainer;
         [SerializeField] List<string> textEvidences, objEvidences;
+        [SerializeField] bool LoadVarsAndEvidencesFromLevelEditor = false;
         [SerializeField] TextAsset i_VarsandEvidences;
 
 
@@ -30,7 +32,15 @@ namespace Holmes_Control
             objEvidences = new List<string>();
             //Time_NewMinute += Save;
 
-            ReadVariablesAndEvidences();
+            if (LoadVarsAndEvidencesFromLevelEditor)
+            {
+                LoadVariablesFromLevelEditor();   
+            }
+            else
+            {
+                ReadVariablesAndEvidences();
+            }
+            
             SaveLocationsInDictionary();
 
             GameObject info = GameObject.FindGameObjectWithTag("DontDestroyOnLoadObj");
@@ -54,6 +64,7 @@ namespace Holmes_Control
             }
         }
 
+        
 
         void Update()
         {
@@ -232,6 +243,11 @@ namespace Holmes_Control
                     //	Debug.Log (w);
                 }
             }
+        }
+
+        private void LoadVariablesFromLevelEditor()
+        {
+            
         }
     }
 
