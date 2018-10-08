@@ -19,6 +19,8 @@ public class GameLogicWindow : EditorWindow
     //obj evidence
     string objNameContent = "";
 
+
+
     [MenuItem("LevelEditor/GameLogicWindow")]
     static void Init()
     {
@@ -28,8 +30,10 @@ public class GameLogicWindow : EditorWindow
         window.Show();
     }
 
+ 
     void OnGUI()
     {
+
         GUIVariables();
         GUILayout.Space(10);
         GUIEvidences();
@@ -77,10 +81,14 @@ public class GameLogicWindow : EditorWindow
 
         GUILayout.Label("Current Variables:");
 
+        string variablesString = "";
+
         foreach (KeyValuePair<string, bool> var in LevelEditorProperties.GetVariables())
         {
-            GUILayout.Label(var.Key + "  " + (var.Value ? "✔" : "X"));
+            variablesString += var.Key + "  " + (var.Value ? "✔" : "X") + "\n";
         }
+
+        GUILayout.Label(variablesString, EditorStyles.helpBox);
     }
 
     private void AddOrChangeVariable()
@@ -120,10 +128,13 @@ public class GameLogicWindow : EditorWindow
 
         GUILayout.Label("Current Text Evidences:");
 
+        string evidencesString = "";
         foreach (string var in LevelEditorProperties.GetTextEvidences())
         {
-            GUILayout.Label(var);
+            evidencesString += var + "\n";
         }
+
+        GUILayout.Label(evidencesString, EditorStyles.helpBox);
     }
 
     private void AddTextEvidence()
@@ -161,10 +172,13 @@ public class GameLogicWindow : EditorWindow
 
         GUILayout.Label("Current Text Evidences:");
 
+        string evidencesString = "";
         foreach (string var in LevelEditorProperties.GetObjEvidences())
         {
-            GUILayout.Label(var);
+            evidencesString += var + "\n";
         }
+
+        GUILayout.Label(evidencesString, EditorStyles.helpBox);
     }
 
     private void AddObjEvidence()
