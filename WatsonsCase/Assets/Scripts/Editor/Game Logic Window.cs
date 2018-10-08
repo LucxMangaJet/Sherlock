@@ -19,6 +19,8 @@ public class GameLogicWindow : EditorWindow
     //obj evidence
     string objNameContent = "";
 
+    //scroll
+    Vector2 scrollPosition= Vector2.zero;
 
 
     [MenuItem("LevelEditor/GameLogicWindow")]
@@ -33,7 +35,7 @@ public class GameLogicWindow : EditorWindow
  
     void OnGUI()
     {
-
+        scrollPosition = GUILayout.BeginScrollView(scrollPosition);
         GUIVariables();
         GUILayout.Space(10);
         GUIEvidences();
@@ -41,6 +43,7 @@ public class GameLogicWindow : EditorWindow
         GUIObjEvidences();
         GUILayout.Space(10);
         GUISpawnPoint();
+        GUILayout.EndScrollView();
     }
 
     private void GUIVariables()
@@ -112,7 +115,7 @@ public class GameLogicWindow : EditorWindow
 
         if (GUILayout.RepeatButton("Add Text Evidence"))
         {
-            if (varNameContent != "")
+            if (evidenceNameContent != "")
             {
                 AddTextEvidence();
             }
@@ -120,7 +123,7 @@ public class GameLogicWindow : EditorWindow
 
         if (GUILayout.RepeatButton("Remove Text Evidence"))
         {
-            if (varNameContent != "")
+            if (evidenceNameContent != "")
             {
                 RemoveTextEvidence();
             }
@@ -156,7 +159,7 @@ public class GameLogicWindow : EditorWindow
 
         if (GUILayout.RepeatButton("Add Object Evidence"))
         {
-            if (varNameContent != "")
+            if (objNameContent != "")
             {
                 AddObjEvidence();
             }
@@ -164,7 +167,7 @@ public class GameLogicWindow : EditorWindow
 
         if (GUILayout.RepeatButton("Remove Object Evidence"))
         {
-            if (varNameContent != "")
+            if (objNameContent != "")
             {
                 RemoveObjEvidence();
             }
@@ -193,9 +196,25 @@ public class GameLogicWindow : EditorWindow
 
     private void GUISpawnPoint()
     {
+        GUILayout.Label("Spawn Point", EditorStyles.boldLabel);
+        GUILayout.Label("Use this section to set the spawnpoint of the player. The Players feet will be set at the position of the given GameObject with the respective rotation.", EditorStyles.helpBox);
 
+        spawnPointObjContent = EditorGUILayout.ObjectField(spawnPointObjContent, typeof(Transform),true) as Transform;
+
+        if (GUILayout.RepeatButton("Set Spawn Point"))
+        {
+            if (spawnPointObjContent != null)
+            {
+                SetSpawnPoint();
+            }
+        }
     }
 
-
-    
+    private void SetSpawnPoint()
+    {
+        if (spawnPointObjContent != null)
+        {
+            LevelEditorProperties.SetSpawn(spawnPointObjContent);
+        }
+    }
 }

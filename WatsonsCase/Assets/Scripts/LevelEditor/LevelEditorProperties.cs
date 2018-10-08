@@ -11,6 +11,9 @@ public class LevelEditorProperties {
     private Dictionary<string, bool> variables;
     private List<string> textEvidences, objEvidences;
 
+    private Vector3 spawnPosition;
+    private Quaternion spawnRotation;
+
     public LevelEditorProperties()
     {
         variables = new Dictionary<string, bool>();
@@ -83,6 +86,12 @@ public class LevelEditorProperties {
     public static void RemoveObjEvidence(string name)
     {
         instance.objEvidences.Remove(name);
+    }
+
+    public static void SetSpawn(Transform transform)
+    {
+        instance.spawnPosition = transform.position;
+        instance.spawnRotation = transform.rotation;
     }
 
 }
