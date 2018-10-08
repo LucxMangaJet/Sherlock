@@ -23,8 +23,6 @@ public class DialogueStarter : MonoBehaviour {
 		handler.GetComponent<Holmes_Menu.MenuHandler> ().exitMenu += ExitMenu;
 		handler.GetComponent<EvidenceDetecting> ().enterDrawing += EnterDialogue;
 		handler.GetComponent<EvidenceDetecting> ().exitDrawing += ExitDialogue;
-        handler.GetComponent<CutsceneHandler>().CutSceneStartEvent += EnterCutscene;
-        handler.GetComponent<CutsceneHandler>().CutSceneEndEvent += ExitCutScene;
 
 
 	}

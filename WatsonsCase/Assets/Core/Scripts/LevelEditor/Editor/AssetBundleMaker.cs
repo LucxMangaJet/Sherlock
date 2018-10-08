@@ -6,7 +6,7 @@ public class AssetBundleMaker : EditorWindow
 
     Object scene;
 
-    [MenuItem("LevelEditor/AssetBundleMaker")]
+    //[MenuItem("LevelEditor/AssetBundleMaker")]
     static void Init()
     {
         AssetBundleMaker window = (AssetBundleMaker)EditorWindow.GetWindow(typeof(AssetBundleMaker));

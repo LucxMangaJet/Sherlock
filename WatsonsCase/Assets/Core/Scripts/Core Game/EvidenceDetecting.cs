@@ -29,8 +29,6 @@ public class EvidenceDetecting : MonoBehaviour
 		GetComponent<DialogueHandler> ().exitDialogueEvent += Enable;
 		GetComponent<MenuHandler> ().enterMenu += Disable;
 		GetComponent<MenuHandler> ().exitMenu += Enable;
-        GetComponent<CutsceneHandler>().CutSceneStartEvent += EnterCutScene;
-        GetComponent<CutsceneHandler>().CutSceneEndEvent += ExitCutscene;
 
       
     }

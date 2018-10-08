@@ -70,8 +70,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			handler.GetComponent<MenuHandler> ().exitMenu += ExitMenu;
 			handler.GetComponent<EvidenceDetecting> ().enterDrawing += EnterDialogue;
 			handler.GetComponent<EvidenceDetecting> ().exitDrawing += ExitDialogue;
-            handler.GetComponent<CutsceneHandler>().CutSceneStartEvent += EnterCutScene;
-            handler.GetComponent<CutsceneHandler>().CutSceneEndEvent += ExitCutScene;
         }
 
 

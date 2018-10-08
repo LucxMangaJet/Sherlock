@@ -43,13 +43,6 @@ public class GameLogicWindow : EditorWindow
         GUIObjEvidences();
         GUILayout.Space(10);
         GUISpawnPoint();
-
-
-        //remove me later
-        if(GUILayout.RepeatButton("TEST: Create Evidence .txt")){
-            LevelEditorProperties.SaveVariablesAndEvidencesIntoTextfile();
-        }
-
         GUILayout.EndScrollView();
     }
 

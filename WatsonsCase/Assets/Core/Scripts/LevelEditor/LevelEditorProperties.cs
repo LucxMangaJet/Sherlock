@@ -95,32 +95,6 @@ public class LevelEditorProperties {
         instance.spawnRotation = transform.rotation;
     }
 
-    public static void SaveVariablesAndEvidencesIntoTextfile()
-    {
-        string path = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
-
-        StreamWriter writer = new StreamWriter(path, false);
-        writer.WriteLine(":Variables:");
-        foreach(var v in instance.variables)
-        {
-            writer.WriteLine((v.Value ? "" : "!") + v.Key + ";");
-        }
-        writer.WriteLine(":Text Evidences:");
-
-        foreach (var e in instance.textEvidences)
-        {
-            writer.WriteLine(e + ";");
-        }
-
-        writer.WriteLine("Object Evidences:");
-
-        foreach (var o in instance.objEvidences)
-        {
-            writer.WriteLine(o + ";");
-        }
-
-        writer.Close();
-
-    }
+    
 
 }

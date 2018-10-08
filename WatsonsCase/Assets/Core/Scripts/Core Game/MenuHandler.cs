@@ -47,7 +47,6 @@ namespace Holmes_Menu
         GameState state;
 
         
-        // Use this for initialization
         void Start()
         {
             sound = GetComponent<SoundHandler>();

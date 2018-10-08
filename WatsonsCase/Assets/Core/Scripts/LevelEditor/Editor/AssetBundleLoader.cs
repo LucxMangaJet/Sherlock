@@ -5,7 +5,7 @@ public class AssetBundleLoader : EditorWindow
 {
 
 
-    [MenuItem("LevelEditor/AssetBundleLoader")]
+    //[MenuItem("LevelEditor/AssetBundleLoader")]
     static void Init()
     {
         AssetBundleLoader window = (AssetBundleLoader)EditorWindow.GetWindow(typeof(AssetBundleLoader));
