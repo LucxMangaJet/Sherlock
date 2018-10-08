@@ -134,11 +134,10 @@ public class MenuScript : MonoBehaviour
 
     public void LoadCustomGame()
     {
-        string path = EditorUtility.OpenFilePanel("Please Select the exported CustomLevel Bundle", "", "");
-
-        AssetBundle ab = AssetBundle.LoadFromFile(path);
-        string[] scenes = ab.GetAllScenePaths();
-        string sceneName = Path.GetFileNameWithoutExtension(scenes[0]);
-        SceneManager.LoadScene(sceneName);
+        //string path = EditorUtility.OpenFilePanel("Please Select the exported CustomLevel Bundle", "", "");
+        //AssetBundle ab = AssetBundle.LoadFromFile(path);
+        //string[] scenes = ab.GetAllScenePaths();
+        //string sceneName = Path.GetFileNameWithoutExtension(scenes[0]);
+        //SceneManager.LoadScene(sceneName);
     }
 }

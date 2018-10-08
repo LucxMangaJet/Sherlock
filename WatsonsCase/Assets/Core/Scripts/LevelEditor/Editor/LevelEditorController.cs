@@ -80,11 +80,11 @@ public static class LevelEditorController {
 
         string savePath = EditorUtility.OpenFolderPanel("Export Custom Level", "", "");
 
-        BuildPipeline.BuildAssetBundles(savePath, BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.StandaloneWindows64);
+        BuildPipeline.BuildAssetBundles(savePath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
 
         foreach (var path in validPaths)
         {
-            AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("None","");
+            AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("","");
         }
 
 
