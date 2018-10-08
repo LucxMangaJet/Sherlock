@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+
 namespace Holmes_Control
 {
     public class GameState : MonoBehaviour
@@ -15,7 +17,7 @@ namespace Holmes_Control
         public Dictionary<string, bool> variables;
         [SerializeField] GameObject locationContainer;
         [SerializeField] List<string> textEvidences, objEvidences;
-        [SerializeField] bool LoadVarsAndEvidencesFromLevelEditor = false;
+        [SerializeField] bool LoadFromLevelEditor = false;
         [SerializeField] TextAsset i_VarsandEvidences;
 
 
@@ -32,13 +34,13 @@ namespace Holmes_Control
             objEvidences = new List<string>();
             //Time_NewMinute += Save;
 
-            if (LoadVarsAndEvidencesFromLevelEditor)
+            if (LoadFromLevelEditor)
             {
                 LoadVariablesFromLevelEditor();   
             }
             else
             {
-                ReadVariablesAndEvidences();
+                ReadVariablesAndEvidences(i_VarsandEvidences.text);
             }
             
             SaveLocationsInDictionary();
@@ -160,9 +162,9 @@ namespace Holmes_Control
             }
         }
 
-        void ReadVariablesAndEvidences()
+        void ReadVariablesAndEvidences(string varsAndEvidences)
         {
-            string s = i_VarsandEvidences.text;
+            string s = varsAndEvidences;
             string g = "";
             for (int i = 0; i < s.Length; i++)
             {
@@ -247,6 +249,24 @@ namespace Holmes_Control
 
         private void LoadVariablesFromLevelEditor()
         {
+            string path = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
+            try
+            {
+                StreamReader reader = new StreamReader(path);
+                string varsAndEvidences = reader.ReadToEnd();
+                reader.Close();
+                ReadVariablesAndEvidences(varsAndEvidences);
+            }
+            catch (Exception ex)
+            {
+                if(ex is FileNotFoundException || ex is DirectoryNotFoundException)
+                { 
+                    Debug.LogError("Unable to find variables file.");
+                }
+                Debug.LogError("Unable to load Custom Level variables. Shutting down.");
+                Application.Quit();
+            }
+            
             
         }
     }
