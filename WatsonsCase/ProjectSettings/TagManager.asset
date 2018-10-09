@@ -17,6 +17,7 @@ TagManager:
   - PianoKey
   - Train
   - Lighttutorial
+  - ToHideInEditor
   layers:
   - Default
   - TransparentFX

@@ -14,11 +14,20 @@ public class LevelEditorMainWindow : EditorWindow {
 
     void OnGUI()
     {
+        if(GUILayout.Button("Load Level Editor"))
+        {
+            LevelEditorController.LoadLevelEditor();
+        }
+
+        if(GUILayout.Button("New Level"))
+        {
+            LevelEditorController.NewCustomLevel();
+        }
 
         if (GUILayout.Button("Export Bundle"))
         {
             LevelEditorController.ExportLevel();
         }
-        
+
     }
 }

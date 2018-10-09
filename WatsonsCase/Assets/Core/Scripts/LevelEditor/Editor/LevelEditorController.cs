@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Linq;
+using UnityEditor.SceneManagement;
 
 public static class LevelEditorController {
 
@@ -26,7 +27,7 @@ public static class LevelEditorController {
 
     private static void LoadCustomLevel()
     {
-        SceneManager.LoadScene("CustomLevel");
+        EditorSceneManager.OpenScene("Assets/CustomLevel/CustomLevel.unity");
     }
 
     public static void NewCustomLevel()
@@ -41,6 +42,14 @@ public static class LevelEditorController {
         }
 
         LoadCustomLevel();
+
+        var objs = GameObject.FindGameObjectsWithTag("ToHideInEditor");
+        foreach (var obj in objs)
+        {
+            obj.hideFlags = HideFlags.HideInInspector | HideFlags.HideInHierarchy | HideFlags.NotEditable;
+        }
+        EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
+        Debug.Log("Loaded New Custom Scene");
     }
 
     private static bool CustomSceneIsInBuildSettings()
@@ -68,17 +77,33 @@ public static class LevelEditorController {
 
     public static void ExportLevel()
     {
+        CreateVariablesAndEvidencesIntoTextfile();
 
         string[] filePaths = Directory.GetFiles("Assets\\CustomLevel\\","*",SearchOption.AllDirectories);
 
-        string[] validPaths = (from a in filePaths where !a.EndsWith(".meta") select a).ToArray();
+        List<string> validPaths = (from a in filePaths where !a.EndsWith(".meta") select a).ToList();
 
-        foreach (var path in validPaths)
+        string[] scenesPaths = (from a in validPaths where a.EndsWith(".unity") select a).ToArray();
+
+        List<string> otherPaths = new List<string>(validPaths);
+
+        foreach (var path in scenesPaths)
         {
-            AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("CustomLevel", "");
+            otherPaths.Remove(path);
         }
 
-        string savePath = EditorUtility.OpenFolderPanel("Export Custom Level", "", "");
+
+        foreach (var path in scenesPaths)
+        {
+            AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("CustomLevelScenes", "");
+        }
+
+        foreach (var path in otherPaths)
+        {
+            AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("CustomLevelAssets", "");
+        }
+
+        string savePath = Application.persistentDataPath + "/";
 
         BuildPipeline.BuildAssetBundles(savePath, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
 
@@ -87,6 +112,7 @@ public static class LevelEditorController {
             AssetImporter.GetAtPath(path).SetAssetBundleNameAndVariant("","");
         }
 
+        Debug.Log("Bundle Exported to: " + savePath);
 
     }
 
