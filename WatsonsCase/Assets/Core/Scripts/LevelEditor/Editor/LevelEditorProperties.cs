@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEditor;
 
 public class LevelEditorProperties {
 
@@ -11,6 +12,8 @@ public class LevelEditorProperties {
 
     private Dictionary<string, bool> variables;
     private List<string> textEvidences, objEvidences;
+    private List<string> characters;
+
 
     private Vector3 spawnPosition;
     private Quaternion spawnRotation;
@@ -20,6 +23,7 @@ public class LevelEditorProperties {
         variables = new Dictionary<string, bool>();
         textEvidences = new List<string>();
         objEvidences = new List<string>();
+        characters = new List<string>();
 
     }
 
@@ -29,7 +33,6 @@ public class LevelEditorProperties {
         {
             instance = new LevelEditorProperties();
         }
-        
     }
 
     public static Dictionary<string, bool> GetVariables()
@@ -45,6 +48,28 @@ public class LevelEditorProperties {
     public static List<string> GetObjEvidences()
     {
         return instance.objEvidences;
+    }
+
+    public static List<string> GetCharacters()
+    {
+        return instance.characters;
+    }
+
+    public static void AddCharacter(string name)
+    {
+        if (!instance.characters.Contains(name))
+        {
+            instance.characters.Add(name);
+        }
+    }
+
+    public static void RemoveCharacter(int indx)
+    {
+        string name = instance.characters[indx];
+        instance.characters.RemoveAt(indx);
+
+
+        LevelEditorController.DeleteCharacterData(name);
     }
 
     public static void AddOrChangeVariable(string name,bool state)
@@ -89,12 +114,14 @@ public class LevelEditorProperties {
         instance.objEvidences.Remove(name);
     }
 
-    public static void SetSpawn(Transform transform)
+    public static void SetSpawn(Transform _transform)
     {
-        instance.spawnPosition = transform.position;
-        instance.spawnRotation = transform.rotation;
-    }
+        instance.spawnPosition = _transform.position;
+        instance.spawnRotation = _transform.rotation;
 
-    
+        Transform tr = GameObject.FindGameObjectWithTag("Main").transform.parent;
+        tr.position = _transform.position;
+        tr.rotation = _transform.rotation;
+    }
 
 }

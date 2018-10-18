@@ -35,6 +35,8 @@ public class GameLogicWindow : EditorWindow
  
     void OnGUI()
     {
+        LevelEditorProperties.Setup();
+
         scrollPosition = GUILayout.BeginScrollView(scrollPosition);
         GUIVariables();
         GUILayout.Space(10);

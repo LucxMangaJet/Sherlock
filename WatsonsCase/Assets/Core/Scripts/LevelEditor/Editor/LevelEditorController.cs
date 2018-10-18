@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEngine.SceneManagement;
 using UnityEditor;
 using System.Linq;
 using UnityEditor.SceneManagement;
 
 public static class LevelEditorController {
+
+    public static string PATH_CHARACTERS = "Assets/CustomLevel/Characters/";
+    public static string PATH_VARS = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
+    public static string PATH_SCENE = "Assets/CustomLevel/CustomLevel.unity";
 
     public static void LoadLevelEditor()
     {
@@ -27,14 +30,13 @@ public static class LevelEditorController {
 
     private static void LoadCustomLevel()
     {
-        EditorSceneManager.OpenScene("Assets/CustomLevel/CustomLevel.unity");
+        EditorSceneManager.OpenScene(PATH_SCENE);
     }
 
     public static void NewCustomLevel()
     {
         string defaultPath = "Assets/Core/Scenes/LevelEditorDefault.unity";
-        string destinationPath = "Assets/CustomLevel/CustomLevel.unity";
-        File.Copy(defaultPath, destinationPath, true);
+        File.Copy(defaultPath, PATH_SCENE, true);
 
         if (!CustomSceneIsInBuildSettings())
         {
@@ -118,9 +120,8 @@ public static class LevelEditorController {
 
     private static void CreateVariablesAndEvidencesIntoTextfile()
     {
-        string path = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
 
-        StreamWriter writer = new StreamWriter(path, false);
+        StreamWriter writer = new StreamWriter(PATH_VARS, false);
         writer.WriteLine(":Variables:");
         foreach (var v in LevelEditorProperties.GetVariables())
         {
@@ -143,5 +144,10 @@ public static class LevelEditorController {
         writer.Close();
 
     }
+    
 
+    public static void DeleteCharacterData(string name)
+    {
+        File.Delete(PATH_CHARACTERS + name + ".json");
+    }
 }

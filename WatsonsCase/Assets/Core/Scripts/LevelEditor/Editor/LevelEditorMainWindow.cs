@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using System.IO;
 
 public class LevelEditorMainWindow : EditorWindow {
+
+    string newCharacterName = "";
+    int deleteCharacterIndex = 0;
 
     [MenuItem("LevelEditor/Main Window")]
     static void Init()
     {
+
         LevelEditorMainWindow window = (LevelEditorMainWindow)EditorWindow.GetWindow(typeof(LevelEditorMainWindow));
         window.Show();
     }
 
     void OnGUI()
     {
-        if(GUILayout.Button("Load Level Editor"))
+        LevelEditorProperties.Setup();
+
+        if (GUILayout.Button("Load Level Editor"))
         {
             LevelEditorController.LoadLevelEditor();
         }
@@ -24,7 +31,26 @@ public class LevelEditorMainWindow : EditorWindow {
             LevelEditorController.NewCustomLevel();
         }
 
-        if (GUILayout.Button("Export Bundle"))
+        GUILayout.BeginHorizontal();
+        newCharacterName = EditorGUILayout.TextField("Name: ", newCharacterName);
+        if (GUILayout.Button("Add new Character"))
+        {
+            LevelEditorProperties.AddCharacter(newCharacterName);
+        }
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal();
+        deleteCharacterIndex = EditorGUILayout.Popup(deleteCharacterIndex, LevelEditorProperties.GetCharacters().ToArray());
+
+        if (GUILayout.Button("Delete Character"))
+        {
+            LevelEditorProperties.RemoveCharacter(deleteCharacterIndex);
+        }
+        GUILayout.EndHorizontal();
+
+
+
+        if (GUILayout.Button("Export Level"))
         {
             LevelEditorController.ExportLevel();
         }
