@@ -45,6 +45,10 @@ public class GameLogicWindow : EditorWindow
         GUIObjEvidences();
         GUILayout.Space(10);
         GUISpawnPoint();
+        GUILayout.Space(10);
+        if(GUILayout.Button("Save Changes")){
+            LevelEditorController.CreateVariablesAndEvidencesIntoTextfile();
+        }
         GUILayout.EndScrollView();
     }
 

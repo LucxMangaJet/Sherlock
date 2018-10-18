@@ -4,12 +4,13 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using Holmes_Control;
+using System;
 
 namespace Holmes_Import{
 public class DialogueParser : MonoBehaviour {
 	[SerializeField]	TextAsset dialogue; 
 	[SerializeField] bool debug,testing = false;
-		[SerializeField] DialogueOption[] dialogueOptions;
+	[SerializeField] DialogueOption[] dialogueOptions;
 	
 	private GameState gameState;
 	// Use this for initialization
@@ -18,6 +19,12 @@ public class DialogueParser : MonoBehaviour {
 
             if (gameState.SaveFileLoaded)
                 return;
+
+            if (gameState.LoadFromLevelEditor)
+            {
+                LoadDialogsFromCustomLevel();
+                return;
+            }
 
 		string s = T_Symplify(dialogue.text);
 
@@ -47,8 +54,31 @@ public class DialogueParser : MonoBehaviour {
 				}
 			}
 	}
-	
-	void T_CheckForVarIntegrity(){
+
+        private void LoadDialogsFromCustomLevel()
+        {
+            
+            string name = GetComponent<Character>().myName;
+            string path = "Assets/CustomLevel/Characters/";
+
+            string[] lines = File.ReadAllLines(path + name + ".json");
+
+            if(lines == null || lines.Length < 1)
+            {
+                return;
+            }
+
+            List<DialogueOption> dialogs = new List<DialogueOption>();
+
+            foreach (string line in lines)
+            {
+                dialogs.Add(JsonUtility.FromJson<DialogueOption>(line));
+            }
+
+            GetComponent<Character>().dialogueOptions = dialogs.ToArray();
+        }
+
+        void T_CheckForVarIntegrity(){
 
 		foreach (DialogueOption j in dialogueOptions) {
 

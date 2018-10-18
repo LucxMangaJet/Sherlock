@@ -23,7 +23,7 @@ public class LevelEditorProperties {
         variables = new Dictionary<string, bool>();
         textEvidences = new List<string>();
         objEvidences = new List<string>();
-        characters = new List<string>();
+        characters = LevelEditorController.LoadCharacterNames();
 
     }
 

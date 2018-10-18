@@ -17,7 +17,7 @@ namespace Holmes_Control
         public Dictionary<string, bool> variables;
         [SerializeField] GameObject locationContainer;
         [SerializeField] List<string> textEvidences, objEvidences;
-        [SerializeField] bool LoadFromLevelEditor = false;
+        [SerializeField] public bool LoadFromLevelEditor = false;
         [SerializeField] TextAsset i_VarsandEvidences;
 
 

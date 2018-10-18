@@ -118,7 +118,7 @@ public static class LevelEditorController {
 
     }
 
-    private static void CreateVariablesAndEvidencesIntoTextfile()
+    public static void CreateVariablesAndEvidencesIntoTextfile()
     {
 
         StreamWriter writer = new StreamWriter(PATH_VARS, false);
@@ -144,10 +144,28 @@ public static class LevelEditorController {
         writer.Close();
 
     }
-    
 
     public static void DeleteCharacterData(string name)
     {
         File.Delete(PATH_CHARACTERS + name + ".json");
+    }
+
+    public static List<string> LoadCharacterNames()
+    {
+        string[] filePaths = Directory.GetFiles("Assets\\CustomLevel\\Characters\\", "*", SearchOption.TopDirectoryOnly);
+
+        List<string> validPaths = (from a in filePaths where !a.EndsWith(".meta") select a).ToList();
+
+        List<string> names = new List<string>() ;
+
+        foreach (var path in validPaths)
+        {
+            string[] temp = path.Split('\\');
+            string temp2 = temp[temp.Length - 1];
+            string name = temp2.Remove(temp2.Length - 5);
+            names.Add(name);
+        }
+           
+        return names;
     }
 }
