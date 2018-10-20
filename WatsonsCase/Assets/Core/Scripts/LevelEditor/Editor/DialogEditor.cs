@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.IO;
+using System.Linq;
 
 class DialogEditor : EditorWindow
 {
@@ -14,14 +15,14 @@ class DialogEditor : EditorWindow
     int textEvidenceSizeMax = 8;
 
     //the number of evidences hidden in the text
-    int requiredEvidenceSize = 1;
+    int requiredVarSize = 0;
     //the max number of evidences hidden in the text
-    int requiredEvidenceSizeMax = 8;
+    int requiredVarsSizeMax = 8;
 
     //the number of evidences hidden in the text
-    int setEvidenceSize = 1;
+    int setVarSize = 0;
     //the max number of evidences hidden in the text
-    int setEvidenceSizeMax = 8;
+    int setVarsSizeMax = 8;
 
     //use question or evidence for asking
     bool useEvidenceToAsk;
@@ -36,19 +37,19 @@ class DialogEditor : EditorWindow
     string answer;
 
     //the text that contains a specific evidence
-    string[] textEvidenceText;
+    string[] textEvidenceText = new string[] { };
     //the id of the selected evidence
-    int[] textEvidenceVar;
+    int[] textEvidenceVar = new int[] { };
     TextEvidence[] textEvidences;
 
     //the id of the required evidence
-    int[] requiredEvidence = new int[] { };
-    bool[] requiredEvidenceValue = new bool[] { };
+    int[] requiredVars = new int[] { };
+    bool[] requiredVarValue = new bool[] { };
     TextBool[] requiredEvidences;
 
     //the id of the required evidence
-    int[] setEvidence = new int[] { };
-    bool[] setEvidenceValue = new bool[] { };
+    int[] setVar = new int[] { };
+    bool[] setVarValue = new bool[] { };
     TextBool[] setEvidences;
 
     //the id of the question evidence
@@ -92,9 +93,9 @@ class DialogEditor : EditorWindow
 
         DisplayEvidencesInAnswer();
 
-        DisplayRequiredEvidences();
+        DisplayRequiredVars();
 
-        DisplaySetEvidences();
+        DisplaySetVars();
 
         //select the npc 
         NPC = EditorGUILayout.Popup("NPC Name:", NPC, LevelEditorProperties.GetCharacters().ToArray());
@@ -129,22 +130,22 @@ class DialogEditor : EditorWindow
     private void Export()
     {
         //convert requiredEvidences to textbools
-        if (requiredEvidenceSize > 0)
+        if (requiredVarSize > 0)
         {
-            requiredEvidences = new TextBool[requiredEvidenceSize];
-            for (int i = 0; i < requiredEvidenceSize; i++)
+            requiredEvidences = new TextBool[requiredVarSize];
+            for (int i = 0; i < requiredVarSize; i++)
             {
-                requiredEvidences[i] = new TextBool(LevelEditorProperties.GetTextEvidences()[requiredEvidence[i]],requiredEvidenceValue[i]);
+                requiredEvidences[i] = new TextBool(LevelEditorProperties.GetVariables().Keys.ToArray()[requiredVars[i]],requiredVarValue[i]);
             }
         }
 
         //convert setEvidences to textbools
-        if (setEvidenceSize > 0)
+        if (setVarSize > 0)
         {
-            setEvidences = new TextBool[setEvidenceSize];
-            for (int i = 0; i < setEvidenceSize; i++)
+            setEvidences = new TextBool[setVarSize];
+            for (int i = 0; i < setVarSize; i++)
             {
-                setEvidences[i] = new TextBool(LevelEditorProperties.GetTextEvidences()[setEvidence[i]],setEvidenceValue[i]);
+                setEvidences[i] = new TextBool(LevelEditorProperties.GetVariables().Keys.ToArray()[setVar[i]],setVarValue[i]);
             }
         }
 
@@ -204,55 +205,55 @@ class DialogEditor : EditorWindow
                 }
             }
         } 
-        //throw new NotImplementedException();
+
         return "checked up!";
     }
 
-    private void DisplaySetEvidences()
+    private void DisplaySetVars()
     {
         //recieve the number of required evidences
-        setEvidenceSize = Mathf.Clamp(EditorGUILayout.IntField("Set Evidences:", setEvidenceSize), 0, setEvidenceSizeMax);
+        setVarSize = Mathf.Clamp(EditorGUILayout.IntField("Set Evidences:", setVarSize), 0, setVarsSizeMax);
 
         //if the number of evindences was edited, update it
-        if (setEvidence.Length != setEvidenceSize && setEvidenceSize != 0)
+        if (setVar.Length != setVarSize)
         {
-            setEvidence = ResizeIntArray(setEvidence, setEvidenceSize);
-            setEvidenceValue = ResizeBoolArray(setEvidenceValue, setEvidenceSize);
+            setVar = ResizeArray(setVar, setVarSize);
+            setVarValue = ResizeBoolArray(setVarValue, setVarSize);
         }
 
         //displays all evidences that are required
-        if (setEvidenceSize > 0)
+        if (setVarSize > 0)
         {
-            for (int j = 0; j < setEvidenceSize; j++)
+            for (int j = 0; j < setVarSize; j++)
             {
                 EditorGUILayout.BeginHorizontal();
-                setEvidence[j] = EditorGUILayout.Popup(string.Empty, setEvidence[j], LevelEditorProperties.GetTextEvidences().ToArray());
-                setEvidenceValue[j] = EditorGUILayout.Toggle(setEvidenceValue[j]);
+                setVar[j] = EditorGUILayout.Popup(string.Empty, setVar[j], LevelEditorProperties.GetVariables().Keys.ToArray());
+                setVarValue[j] = EditorGUILayout.Toggle(setVarValue[j]);
                 EditorGUILayout.EndHorizontal();
             }
         }
     }
 
-    private void DisplayRequiredEvidences()
+    private void DisplayRequiredVars()
     {
         //recieve the number of required evidences
-        requiredEvidenceSize = Mathf.Clamp(EditorGUILayout.IntField("Required Evidences:", requiredEvidenceSize), 0, requiredEvidenceSizeMax);
+        requiredVarSize = Mathf.Clamp(EditorGUILayout.IntField("Required Evidences:", requiredVarSize), 0, requiredVarsSizeMax);
 
         //if the number of evindences was edited, update it
-        if (requiredEvidence.Length != requiredEvidenceSize && requiredEvidenceSize != 0)
+        if (requiredVars.Length != requiredVarSize )
         {
-            requiredEvidence = ResizeIntArray(requiredEvidence, requiredEvidenceSize);
-            requiredEvidenceValue = ResizeBoolArray(requiredEvidenceValue, requiredEvidenceSize);
+            requiredVars = ResizeArray(requiredVars, requiredVarSize);
+            requiredVarValue = ResizeBoolArray(requiredVarValue, requiredVarSize);
         }
 
         //displays all evidences that are required
-        if (requiredEvidenceSize > 0)
+        if (requiredVarSize > 0)
         {
-            for (int j = 0; j < requiredEvidenceSize; j++)
+            for (int j = 0; j < requiredVarSize; j++)
             {
                 EditorGUILayout.BeginHorizontal();
-                requiredEvidence[j] = EditorGUILayout.Popup(string.Empty, requiredEvidence[j], LevelEditorProperties.GetTextEvidences().ToArray());
-                requiredEvidenceValue[j] = EditorGUILayout.Toggle(requiredEvidenceValue[j]);
+                requiredVars[j] = EditorGUILayout.Popup(string.Empty, requiredVars[j], LevelEditorProperties.GetVariables().Keys.ToArray());
+                requiredVarValue[j] = EditorGUILayout.Toggle(requiredVarValue[j]);
                 EditorGUILayout.EndHorizontal();
             }
         }
@@ -264,10 +265,10 @@ class DialogEditor : EditorWindow
         textEvidenceSize = Mathf.Clamp(EditorGUILayout.IntField("TextEvidences:", textEvidenceSize), 0, textEvidenceSizeMax);
 
         //if the number of evindences was edited, update it
-        if (textEvidenceText != null && textEvidenceText.Length != textEvidenceSize && textEvidenceSize != 0)
+        if (textEvidenceText != null && textEvidenceText.Length != textEvidenceSize)
         {
-            textEvidenceText = ResizeStringArray(textEvidenceText, textEvidenceSize);
-            textEvidenceVar = ResizeIntArray(textEvidenceVar, textEvidenceSize);
+            textEvidenceText = ResizeArray(textEvidenceText, textEvidenceSize);
+            textEvidenceVar = ResizeArray(textEvidenceVar, textEvidenceSize);
         }
 
         //displays all evidences for that answer
@@ -303,33 +304,23 @@ class DialogEditor : EditorWindow
         answer = EditorGUILayout.TextArea(answer, GUILayout.MinHeight(boxHeight));
     }
 
-    //resizes a string array but keeping the content
-    string[] ResizeStringArray(string[] input, int newSize)
+   
+
+    
+    //resize an array but keep the content
+    T[] ResizeArray<T>(T[] input, int newSize)
     {
-        List<string> temp = new List<string>(input);
+        List<T> temp = new List<T>(input);
         int sizeDiff = newSize - input.Length;
+
+        if (newSize == 0)
+        {
+            return new T[0];
+        }
 
         if (sizeDiff > 0)
         {
-            temp.AddRange(new string[sizeDiff]);
-        }
-        else
-        {
-            temp.RemoveRange(temp.Count + sizeDiff, -sizeDiff);
-        }
-
-        return temp.ToArray();
-    }
-
-    //resizes a int array but keeping the content
-    int[] ResizeIntArray(int[] input, int newSize)
-    {
-        List<int> temp = new List<int>(input);
-        int sizeDiff = newSize - input.Length;
-
-        if (sizeDiff > 0)
-        {
-            temp.AddRange(new int[sizeDiff]);
+            temp.AddRange(new T[sizeDiff]);
         }
         else
         {

@@ -85,6 +85,11 @@ public static class LevelEditorController {
 
         List<string> validPaths = (from a in filePaths where !a.EndsWith(".meta") select a).ToList();
 
+        foreach (var item in validPaths)
+        {
+            Debug.Log(item);
+        }
+
         string[] scenesPaths = (from a in validPaths where a.EndsWith(".unity") select a).ToArray();
 
         List<string> otherPaths = new List<string>(validPaths);
@@ -134,7 +139,7 @@ public static class LevelEditorController {
             writer.WriteLine(e + ";");
         }
 
-        writer.WriteLine("Object Evidences:");
+        writer.WriteLine(":Object Evidences:");
 
         foreach (var o in LevelEditorProperties.GetObjEvidences())
         {
@@ -144,6 +149,8 @@ public static class LevelEditorController {
         writer.Close();
 
     }
+
+    
 
     public static void DeleteCharacterData(string name)
     {
