@@ -255,7 +255,6 @@ namespace Holmes_Control
                 StreamReader reader = new StreamReader(path);
                 string varsAndEvidences = reader.ReadToEnd();
                 reader.Close();
-                Debug.Log(varsAndEvidences);
                 ReadVariablesAndEvidences(varsAndEvidences);
             }
             catch (Exception ex)

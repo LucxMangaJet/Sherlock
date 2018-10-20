@@ -7,11 +7,11 @@ using UnityEditor;
 public class LevelEditorProperties {
 
     //singleton
-    private static LevelEditorProperties instance;
+    public static LevelEditorProperties instance;
 
 
-    private Dictionary<string, bool> variables;
-    private List<string> textEvidences, objEvidences;
+    public Dictionary<string, bool> variables;
+    public List<string> textEvidences, objEvidences;
     private List<string> characters;
 
 
@@ -24,7 +24,6 @@ public class LevelEditorProperties {
         textEvidences = new List<string>();
         objEvidences = new List<string>();
         characters = LevelEditorController.LoadCharacterNames();
-
     }
 
     public static void Setup()
@@ -32,6 +31,7 @@ public class LevelEditorProperties {
         if(instance == null)
         {
             instance = new LevelEditorProperties();
+            LevelEditorController.ReadVariablesAndEvidencesFromFile();
         }
     }
 

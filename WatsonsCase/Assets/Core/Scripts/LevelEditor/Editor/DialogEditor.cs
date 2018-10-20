@@ -138,6 +138,10 @@ class DialogEditor : EditorWindow
                 requiredEvidences[i] = new TextBool(LevelEditorProperties.GetVariables().Keys.ToArray()[requiredVars[i]],requiredVarValue[i]);
             }
         }
+        else
+        {
+            requiredEvidences = null;
+        }
 
         //convert setEvidences to textbools
         if (setVarSize > 0)
@@ -147,6 +151,10 @@ class DialogEditor : EditorWindow
             {
                 setEvidences[i] = new TextBool(LevelEditorProperties.GetVariables().Keys.ToArray()[setVar[i]],setVarValue[i]);
             }
+        }
+        else
+        {
+            setEvidences = null;
         }
 
         //convert Evidences hidden in the answer into the TextEvidence Format
@@ -161,6 +169,9 @@ class DialogEditor : EditorWindow
 
                 textEvidences[i] = new TextEvidence(LevelEditorProperties.GetTextEvidences()[textEvidenceVar[i]],textEvidenceText[i],startIndx,endIndx);
             }
+        }else
+        {
+            textEvidences = null;
         }
 
         //construct dialog options
@@ -212,13 +223,13 @@ class DialogEditor : EditorWindow
     private void DisplaySetVars()
     {
         //recieve the number of required evidences
-        setVarSize = Mathf.Clamp(EditorGUILayout.IntField("Set Evidences:", setVarSize), 0, setVarsSizeMax);
+        setVarSize = Mathf.Clamp(EditorGUILayout.IntField("Set Variables:", setVarSize), 0, setVarsSizeMax);
 
         //if the number of evindences was edited, update it
         if (setVar.Length != setVarSize)
         {
             setVar = ResizeArray(setVar, setVarSize);
-            setVarValue = ResizeBoolArray(setVarValue, setVarSize);
+            setVarValue = ResizeArray(setVarValue, setVarSize);
         }
 
         //displays all evidences that are required
@@ -237,13 +248,13 @@ class DialogEditor : EditorWindow
     private void DisplayRequiredVars()
     {
         //recieve the number of required evidences
-        requiredVarSize = Mathf.Clamp(EditorGUILayout.IntField("Required Evidences:", requiredVarSize), 0, requiredVarsSizeMax);
+        requiredVarSize = Mathf.Clamp(EditorGUILayout.IntField("Required Variables:", requiredVarSize), 0, requiredVarsSizeMax);
 
         //if the number of evindences was edited, update it
         if (requiredVars.Length != requiredVarSize )
         {
             requiredVars = ResizeArray(requiredVars, requiredVarSize);
-            requiredVarValue = ResizeBoolArray(requiredVarValue, requiredVarSize);
+            requiredVarValue = ResizeArray(requiredVarValue, requiredVarSize);
         }
 
         //displays all evidences that are required
@@ -321,42 +332,6 @@ class DialogEditor : EditorWindow
         if (sizeDiff > 0)
         {
             temp.AddRange(new T[sizeDiff]);
-        }
-        else
-        {
-            temp.RemoveRange(temp.Count + sizeDiff, -sizeDiff);
-        }
-
-        return temp.ToArray();
-    }
-
-    //resizes a TextBool array but keeping the content
-    TextBool[] ResizeTextBoolArray(TextBool[] input, int newSize)
-    {
-        List<TextBool> temp = new List<TextBool>(input);
-        int sizeDiff = newSize - input.Length;
-
-        if (sizeDiff > 0)
-        {
-            temp.AddRange(new TextBool[sizeDiff]);
-        }
-        else
-        {
-            temp.RemoveRange(temp.Count + sizeDiff, -sizeDiff);
-        }
-
-        return temp.ToArray();
-    }
-
-    //resizes a bool array but keeping the content
-    bool[] ResizeBoolArray(bool[] input, int newSize)
-    {
-        List<bool> temp = new List<bool>(input);
-        int sizeDiff = newSize - input.Length;
-
-        if (sizeDiff > 0)
-        {
-            temp.AddRange(new bool[sizeDiff]);
         }
         else
         {

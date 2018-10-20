@@ -123,6 +123,101 @@ public static class LevelEditorController {
 
     }
 
+    public static void ReadVariablesAndEvidencesFromFile()
+    {
+        Dictionary<string, bool> variables= new Dictionary<string, bool>();
+        List<string> textEvidences = new List<string>();
+        List<string> objEvidences = new List<string>();
+
+        string s = File.ReadAllText(PATH_VARS);
+        string g = "";
+        for (int i = 0; i < s.Length; i++)
+        {
+            char j = s[i];
+            if (j.GetHashCode() > 32)
+            {
+                g += j;
+            }
+        }
+
+        string[] o = new string[3];
+        int indx = -1;
+        bool inName = false;
+        o[0] = ""; o[1] = ""; o[2] = "";
+
+        for (int i = 0; i < g.Length; i++)
+        {
+            if (indx > 2)
+                break;
+
+            char j = g[i];
+            if (j == ':')
+            {
+                if (inName)
+                {
+                    indx++;
+                    inName = false;
+                }
+                else
+                {
+                    inName = true;
+                }
+            }
+            else
+            {
+                if (!inName)
+                    o[indx] += j;
+            }
+        }
+
+        string[] k = o[0].Split(';');
+        //vars
+        foreach (string l in k)
+        {
+            if (l.Length > 2)
+            {
+
+                if (l.Contains("!"))
+                {
+                    variables.Add(l.Replace("!", ""), false);
+                }
+                else
+                {
+                    variables.Add(l, true);
+                }
+
+            }
+        }
+
+        k = o[1].Split(';');
+        //textEvidence
+        foreach (string u in k)
+        {
+            if (u.Length > 2)
+            {
+                textEvidences.Add(u);
+                //	Debug.Log (u);
+            }
+        }
+
+        k = o[2].Split(';');
+        //textEvidence
+        foreach (string w in k)
+        {
+            if (w.Length > 2)
+            {
+                objEvidences.Add(w);
+                //	Debug.Log (w);
+            }
+        }
+
+        LevelEditorProperties.instance.objEvidences = objEvidences;
+        LevelEditorProperties.instance.textEvidences = textEvidences;
+        LevelEditorProperties.instance.variables = variables;
+    }
+
+    
+
     public static void CreateVariablesAndEvidencesIntoTextfile()
     {
 
