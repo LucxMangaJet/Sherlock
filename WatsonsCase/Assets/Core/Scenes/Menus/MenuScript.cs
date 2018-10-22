@@ -140,6 +140,16 @@ public class MenuScript : MonoBehaviour
         AssetBundle ab = AssetBundle.LoadFromFile(scenePath);
         string[] scenes = ab.GetAllScenePaths();
         string sceneName = Path.GetFileNameWithoutExtension(scenes[0]);
+
+        foreach (var item in aa.GetAllAssetNames())
+        {
+            Debug.Log(item);
+        }
+
+        ABHolder aBHolder = GameObject.FindGameObjectWithTag("DontDestroyOnLoadObj").AddComponent<ABHolder>();
+        aBHolder.ab = aa;
+           
         SceneManager.LoadScene(sceneName);
+        
     }
 }

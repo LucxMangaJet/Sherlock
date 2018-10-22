@@ -20,6 +20,7 @@ namespace Holmes_Control
         [SerializeField] public bool LoadFromLevelEditor = false;
         [SerializeField] TextAsset i_VarsandEvidences;
 
+        public AssetBundle abCustomLevel = null;
 
         public delegate void intDelegate(int i);
         public delegate void UpdateVarDel(string s, bool b);
@@ -36,7 +37,8 @@ namespace Holmes_Control
 
             if (LoadFromLevelEditor)
             {
-                LoadVariablesFromLevelEditor();   
+                abCustomLevel = GameObject.FindGameObjectWithTag("DontDestroyOnLoadObj").GetComponent<ABHolder>().ab;
+                LoadVariablesFromLevelEditor(abCustomLevel);   
             }
             else
             {
@@ -247,15 +249,13 @@ namespace Holmes_Control
             }
         }
 
-        private void LoadVariablesFromLevelEditor()
+        private void LoadVariablesFromLevelEditor(AssetBundle ab)
         {
-            string path = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
+            //string path = "Assets/CustomLevel/Logic/VarsAndEvidences.txt";
             try
             {
-                StreamReader reader = new StreamReader(path);
-                string varsAndEvidences = reader.ReadToEnd();
-                reader.Close();
-                ReadVariablesAndEvidences(varsAndEvidences);
+                TextAsset ta = ab.LoadAsset<TextAsset>("VarsAndEvidences.txt");
+                ReadVariablesAndEvidences(ta.text);
             }
             catch (Exception ex)
             {
@@ -264,7 +264,7 @@ namespace Holmes_Control
                     Debug.LogError("Unable to find variables file.");
                 }
                 Debug.LogError("Unable to load Custom Level variables. Shutting down.");
-                Application.Quit();
+                //Application.Quit();
             }
             
             

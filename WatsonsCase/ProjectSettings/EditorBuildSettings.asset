@@ -32,7 +32,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Core/Scenes/TransitionScenes/Credits.unity
     guid: 6ceb8475900d15d4ba9b4b5897f2d338
-  - enabled: 1
-    path: Assets/CustomLevel/CustomLevel.unity
-    guid: 00000000000000000000000000000000
   m_configObjects: {}

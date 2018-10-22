@@ -59,11 +59,12 @@ public class DialogueParser : MonoBehaviour {
         {
             
             string name = GetComponent<Character>().myName;
-            string path = "Assets/CustomLevel/Characters/";
+            AssetBundle ab = GameObject.FindGameObjectWithTag("DontDestroyOnLoadObj").GetComponent<ABHolder>().ab;
+            TextAsset ta = ab.LoadAsset<TextAsset>(name+ ".json");
 
-            string[] lines = File.ReadAllLines(path + name + ".json");
+            string[] lines =  ta.text.Split('\n');
 
-            if(lines == null || lines.Length < 1)
+            if (lines == null || lines.Length < 1)
             {
                 return;
             }
@@ -72,7 +73,10 @@ public class DialogueParser : MonoBehaviour {
 
             foreach (string line in lines)
             {
-                dialogs.Add(JsonUtility.FromJson<DialogueOption>(line));
+                if (line.Length > 10)
+                {
+                    dialogs.Add(JsonUtility.FromJson<DialogueOption>(line));
+                }
             }
 
             GetComponent<Character>().dialogueOptions = dialogs.ToArray();

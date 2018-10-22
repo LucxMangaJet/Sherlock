@@ -192,7 +192,7 @@ class DialogEditor : EditorWindow
         string DialogINJson = JsonUtility.ToJson(newDialogue);
 
         File.AppendAllText(LevelEditorController.PATH_CHARACTERS + LevelEditorProperties.GetCharacters()[NPC] + ".json", DialogINJson + Environment.NewLine);
-
+        AssetDatabase.Refresh();
 
     }
 
